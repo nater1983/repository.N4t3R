@@ -10,7 +10,7 @@ DOWNLOAD_x86_64="https://github.com/citra-emu/ext-boost/archive/66937ea62d126a92
                  https://github.com/weidai11/cryptopp/archive/f2102243e6fdd48c0b2a393a0993cca228f20573/cryptopp-f2102243e6fdd48c0b2a393a0993cca228f20573.tar.gz \
                  https://github.com/kinetiknz/cubeb/archive/dc511c6b3597b6384d28949285b9289e009830ea/cubeb-dc511c6b3597b6384d28949285b9289e009830ea.tar.gz \
                  https://github.com/yuzu-emu/discord-rpc/archive/963aa9f3e5ce81a4682c6ca3d136cddda614db33/discord-rpc-963aa9f3e5ce81a4682c6ca3d136cddda614db33.tar.gz \
-                 https://github.com/citra-emu/dynarmic/archive/45bc7a82de5fab362ad01268a08e7eaa689ae2c2/dynarmic-45bc7a82de5fab362ad01268a08e7eaa689ae2c2.tar.gz \
+                 https://github.com/citra-emu/dynarmic/archive/7a926d689bcc1cc39dd26d5bba379dffcc6815a3/dynarmic-7a926d689bcc1cc39dd26d5bba379dffcc6815a3.tar.gz \
                  https://github.com/lsalzman/enet/archive/4f8e9bdc4ce6d1f61a6274b0e557065a38190952/enet-4f8e9bdc4ce6d1f61a6274b0e557065a38190952.tar.gz \
                  https://github.com/citra-emu/ext-soundtouch/archive/060181eaf273180d3a7e87349895bd0cb6ccbf4a/ext-soundtouch-060181eaf273180d3a7e87349895bd0cb6ccbf4a.tar.gz \
                  https://github.com/fmtlib/fmt/archive/a33701196adfad74917046096bf5a2aa0ab0bb50/fmtlib-a33701196adfad74917046096bf5a2aa0ab0bb50.tar.gz \
