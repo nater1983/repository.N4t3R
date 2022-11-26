@@ -22,8 +22,6 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=inputstream.ffmpegdirect
@@ -67,10 +65,7 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e # Exit on most errors
-# If you prefer to do selective error checking with
-#   command || exit 1
-# then that's also acceptable.
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
