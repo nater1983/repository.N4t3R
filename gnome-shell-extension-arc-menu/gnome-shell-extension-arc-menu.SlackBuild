@@ -26,7 +26,8 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=gnome-shell-extension-arc-menu
 SRCNAM=ArcMenu
-VERSION=${VERSION:-v27}
+SRCVER=${SRCVER:-v27}
+VERSION=${VERSION:-27}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -61,9 +62,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $SRCNAM-$VERSION
+rm -rf $SRCNAM-$SRCVER
 tar xvf $CWD/$SRCNAM-$VERSION.tar.?z
-cd $SRCNAM-$VERSION
+cd $SRCNAM-$SRCVER
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
