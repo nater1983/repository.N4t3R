@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for dash-to-panel
+# Slackware build script for gnome-shell-extension-dash-to-panel
 
 # Copyright 2022 Nathaniel Russell <naterussell83@gmail.com>
 # All rights reserved.
