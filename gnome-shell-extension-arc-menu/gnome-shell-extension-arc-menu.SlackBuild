@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=gnome-shell-extension-arc-menu
 SRCNAM=ArcMenu
-SRCVER=${SRCVER:-v27}
+SRCVER=${SRCVER:-0e3e4f4eac863be9afe2cc22e384223740600642}
 VERSION=${VERSION:-27}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
