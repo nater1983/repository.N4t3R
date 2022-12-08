@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+               |-----handy-ruler------------------------------------------------------|
+webapp-manager : webapp Run websites as if they were apps.
+webapp-manager :      
+webapp-manager : Right-click an empty area of the Web page to show the context menu.
+webapp-manager : In most browsers this menu contains navigation buttons.
+webapp-manager : 
+webapp-manager : https://github.com/linuxmint/webapp-manager  
+webapp-manager : 
+webapp-manager :   
+webapp-manager :
+webapp-manager : 
+webapp-manager :
