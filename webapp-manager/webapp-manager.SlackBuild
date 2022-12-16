@@ -26,10 +26,11 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=webapp-manager
 PYTHON=webapp
-VERSION=1.2.7
+VERSION=1.2.8
 BUILD=${BUILD:-1}
 TAG=${TAG:-}
 PKGTYPE=${PKGTYPE:-txz}
+_commit=aab427a9d4ce96a47f90f22a552ea37fda5ca970
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -70,6 +71,7 @@ cd $TMP
 rm -rf $PRGNAM
 git clone https://github.com/linuxmint/webapp-manager.git
 cd $PRGNAM
+git checkout $_commit
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -78,9 +80,9 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 make
-sed -i -- 's/__DEB_VERSION__/1.2.7/g' usr/lib/webapp-manager/webapp-manager.py 
+sed -i -- 's/__DEB_VERSION__/1.2.8/g' usr/lib/webapp-manager/webapp-manager.py 
 find . -type f -not -path '*/\.*' -exec sed -i 's|/usr/lib|/usr/lib64|g' {} +
-sed -i 's|/usr/share/common-licenses/GPL|/usr/doc/webapp-manager-1.2.7/copyright|g' usr/lib/webapp-manager/webapp-manager.py 
+sed -i 's|/usr/share/common-licenses/GPL|/usr/doc/webapp-manager-1.2.8/copyright|g' usr/lib/webapp-manager/webapp-manager.py 
 mv usr/lib usr/lib64
 cp -a usr etc $PKG/
 
