@@ -29,6 +29,7 @@ VERSION=3.1.0
 BUILD=${BUILD:-1}
 TAG=${TAG:-}
 PKGTYPE=${PKGTYPE:-txz}
+_commit=ab2ac46e50bdeb78acbdea285a57b54ab51275cd
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -69,6 +70,7 @@ cd $TMP
 rm -rf $PRGNAM
 git clone https://github.com/linuxmint/hypnotix.git
 cd $PRGNAM
+git checkout $_commit
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
