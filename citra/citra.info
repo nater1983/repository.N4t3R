@@ -28,7 +28,7 @@ DOWNLOAD_x86_64="https://github.com/citra-emu/ext-boost/archive/66937ea62d126a92
                  https://github.com/facebook/zstd/archive/e47e674cd09583ff0503f0f6defd6d23d8b718d3/zstd-e47e674cd09583ff0503f0f6defd6d23d8b718d3.tar.gz"
 MD5SUM_x86_64="5174ce071059df72e3218962510f009e \
                68b777fb3397d3488005497258f1210e \
-               31050869195f04cb50f951ed0b07f9b2 \
+               5caccd599ad6e7a9ae2833b734ea2e92 \
                aaedf57982eb620c232238b87d136a2c \
                a028163a91b5c6cb8212780171cd62de \
                5a40e81e1d6b2438c9b618ffcb679430 \
