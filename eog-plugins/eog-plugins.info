@@ -5,6 +5,6 @@ DOWNLOAD="https://download.gnome.org/sources/eog-plugins/3.9/eog-plugins-3.9.5.t
 MD5SUM="56c0008bdb16ea6f03ba25a530a0a51c"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="libpeas"
 MAINTAINER="Nathaniel Russell"
 EMAIL="naterussell83@gmail.com"
