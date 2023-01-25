@@ -6,14 +6,13 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
            |-----handy-ruler------------------------------------------------------|
-eog-plugins: eog-plugins (This is the Eye of GNOME)
+eog-plugins: eog-plugins (Plugins for Eye of GNOME)
 eog-plugins:
-eog-plugins: This is the Eye of GNOME, an image viewer program. 
-eog-plugins: It is meant to be a fast and functional image viewer.
-eog-plugins: 
-eog-plugins: 
-eog-plugins: 
+eog-plugins: Plugins to extend the functionality of image viewing for the Eye of
+eog-plugins: GNOME.
 eog-plugins:
-eog-plugins: 
-eog-plugins: https://gitlab.gnome.org/GNOME/eog
+eog-plugins: Homepage: https://wiki.gnome.org/Apps/EyeOfGnome
+eog-plugins:
+eog-plugins:
+eog-plugins:
 eog-plugins:
