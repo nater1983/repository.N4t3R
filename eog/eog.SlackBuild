@@ -98,7 +98,7 @@ meson setup ..\
  -Dgtk_doc=false \
  -Dintrospection=true \
  -Dinstalled_tests=false \
- -Dlibportal=false \
+ -Dlibportal=true \
  -Dprofile=default
   "${NINJA:=ninja}"
   DESTDIR=$PKG $NINJA install
