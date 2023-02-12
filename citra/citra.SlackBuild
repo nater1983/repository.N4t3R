@@ -103,7 +103,7 @@ tar xvf $CWD/Catch2-$CATCH.tar.gz -C \
 tar xvf $CWD/cpp-jwt-$CPPJWT.tar.gz -C \
   $DEPS/cpp-jwt --strip-components 1
 tar xvf $CWD/cryptopp-$CRYPTOPP.tar.gz -C \
-  $DEPS/cryptopp/cryptopp --strip-components 1
+  $DEPS/cryptopp --strip-components 1
 tar xvf $CWD/cryptopp-cmake-$CRYPTOCMAKE.tar.gz -C \
   $DEPS/cryptopp-cmake --strip-components 1  
 tar xvf $CWD/cubeb-$CUBEB.tar.gz -C \
