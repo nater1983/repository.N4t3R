@@ -148,7 +148,8 @@ tar xvf $CWD/zstd-$ZSTD.tar.gz -C \
 echo "gitdir: ../../.git/modules/boost" > $DEPS/boost/.git
 echo "gitdir: ../../.git/modules/catch2" > $DEPS/catch2/.git
 echo "gitdir: ../../.git/modules/cpp-jwt" > $DEPS/cpp-jwt/.git
-echo "gitdir: ../../.git/modules/cryptopp" > $DEPS/cryptopp/cryptopp/.git
+echo "gitdir: ../../.git/modules/cryptopp" > $DEPS/cryptopp/.git
+echo "gitdir: ../../.git/modules/cryptopp-cmake" > $DEPS/cryptopp-cmake/.git
 echo "gitdir: ../../.git/modules/cubeb" > $DEPS/cubeb/.git
 echo "gitdir: ../../.git/modules/discord-rpc" > $DEPS/discord-rpc/.git
 echo "gitdir: ../../.git/modules/dynarmic" > $DEPS/dynarmic/.git
