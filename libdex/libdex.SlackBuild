@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for eog
+# Slackware build script for libdex
 
 # Copyright 2023 Nathaniel Russell <naterussell83@gmail.com>
 # All rights reserved.
@@ -24,10 +24,10 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=eog	
-VERSION=${VERSION:-41.2}
+PRGNAM=libdex
+VERSION=${VERSION:-0.1.1}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}	
+TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
 if [ -z "$ARCH" ]; then
@@ -56,6 +56,9 @@ elif [ "$ARCH" = "i686" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "aarch64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
@@ -69,52 +72,63 @@ cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
 cd $PRGNAM-$VERSION
+sed -i -- 's/0.62.0/0.59.4/g' meson.build
 chown -R root:root .
 find -L . \
- \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
-  -o -perm 511 \) -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
-  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
-
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+ -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+ -exec chmod 644 {} \;
 mkdir build
 cd build
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-meson setup ..\
- --prefix=/usr \
- --buildtype=release \
- --libdir=lib${LIBDIRSUFFIX} \
- --libexecdir=/usr/libexec \
- --sysconfdir=/etc \
- --infodir=/usr/info \
- --mandir=/usr/man \
- --localstatedir=/var \
- -Ddefault_library=shared \
- -Dlibexif=true \
- -Dcms=true \
- -Dxmp=true \
- -Dlibjpeg=true \
- -Dlibrsvg=true \
- -Dgtk_doc=false \
- -Dintrospection=true \
- -Dinstalled_tests=false \
- -Dlibportal=true \
- -Dprofile=default
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson .. \
+    --buildtype=release \
+    --infodir=/usr/info \
+    --libdir=/usr/lib${LIBDIRSUFFIX} \
+    --localstatedir=/var \
+    --mandir=/usr/man \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    -Dstrip=true \
+    -Dvapi=true \
+    -Ddocs=false \
+    -Dexamples=false \
+    -Dintrospection=enabled \
+    -Dsysprof=false \
+    -Dtests=false
   "${NINJA:=ninja}"
   DESTDIR=$PKG $NINJA install
 cd ..
 
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+# Compress and link manpages, if any:
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+    for manpagedir in $(find . -type d -name "man*") ; do
+      ( cd $manpagedir
+        for eachpage in $( find . -type l -maxdepth 1) ; do
+          ln -s $( readlink $eachpage ).gz $eachpage.gz
+          rm $eachpage
+        done
+        gzip -9 *.*
+      )
+    done
+  )
+fi
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING ChangeLog* HACKING MAINTAINERS NEWS README.md THANKS \
+cp -a COPYING README.md TODO.md \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
