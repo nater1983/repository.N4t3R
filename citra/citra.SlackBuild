@@ -155,6 +155,7 @@ echo "gitdir: ../../.git/modules/cryptopp" > $DEPS/cryptopp/.git
 echo "gitdir: ../../.git/modules/cryptopp-cmake" > $DEPS/cryptopp-cmake/.git
 echo "gitdir: ../../.git/modules/cubeb" > $DEPS/cubeb/.git
 echo "gitdir: ../../.git/modules/discord-rpc" > $DEPS/discord-rpc/.git
+echo "gitdir: ../../.git/modules/dds-ktx" > $DEPS/dds-ktx/.git
 echo "gitdir: ../../.git/modules/dynarmic" > $DEPS/dynarmic/.git
 echo "gitdir: ../../.git/modules/enet" > $DEPS/enet/.git
 echo "gitdir: ../../.git/modules/soundtouch" > $DEPS/soundtouch/.git
