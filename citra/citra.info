@@ -14,7 +14,7 @@ DOWNLOAD_x86_64="https://github.com/citra-emu/ext-boost/archive/80a171a179c1f901
 		 https://github.com/septag/dds-ktx/archive/42dd8aa6ded90b1ec06091522774feff51e83fc5/dds-ktx-42dd8aa6ded90b1ec06091522774feff51e83fc5.tar.gz \
                  https://github.com/merryhime/dynarmic/archive/d5c2b473a831ca9e2a93bda30dc131b4fee7314f/dynarmic-d5c2b473a831ca9e2a93bda30dc131b4fee7314f.tar.gz \
                  https://github.com/lsalzman/enet/archive/4f8e9bdc4ce6d1f61a6274b0e557065a38190952/enet-4f8e9bdc4ce6d1f61a6274b0e557065a38190952.tar.gz \
-                 https://codeberg.org/soundtouch/soundtouch/archive/dd2252e9af3f2d6b749378173a4ae89551e06faf/ext-soundtouch-dd2252e9af3f2d6b749378173a4ae89551e06faf.tar.gz \
+                 https://www.surina.net/soundtouch/soundtouch-2.3.2.tar.gz \
                  https://github.com/fmtlib/fmt/archive/a33701196adfad74917046096bf5a2aa0ab0bb50/fmt-a33701196adfad74917046096bf5a2aa0ab0bb50.tar.gz \
                  https://github.com/google/googletest/archive/800f5422ac9d9e0ad59cd860a2ef3a679588acb4/googletest-800f5422ac9d9e0ad59cd860a2ef3a679588acb4.tar.gz \
                  https://github.com/benhoyt/inih/archive/5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b/inih-5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b.tar.gz \
