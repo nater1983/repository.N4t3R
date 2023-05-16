@@ -47,6 +47,7 @@ LIBUSB=${LIBUSB:-54350bd83fbcc9555abc57988d6fd73f3b9e9ff8}
 LIBYUV=${LIBYUV:-6900494d90ae095d44405cd4cc3f346971fa69c9}
 LODEPNG=${LODEPNG:-18964554bc769255401942e0e6dfd09f2fab2093}
 NIHSTRO=${NIHSTRO:-fd69de1a1b960ec296cc67d32257b0f9e2d89ac6}
+OPENAL=${OPENAL:-d9fed51aa6391debc31dbbca550f055c980afe70}
 SANITIZERSCMAKE=${SANITIZERSCMAKE:-aab6948fa863bc1cbe5d0850bc46b9ef02ed4c1a}
 SDL2=${SDL2:-ac13ca9ab691e13e8eebe9684740ddcb0d716203}
 TEAKRA=${TEAKRA:-01db7cdd00aabcce559a8dddce8798dabb71949b}
@@ -135,6 +136,8 @@ tar xvf $CWD/lodepng-$LODEPNG.tar.gz -C \
   $DEPS/lodepng/lodepng --strip-components 1
 tar xvf $CWD/nihstro-$NIHSTRO.tar.gz -C \
   $DEPS/nihstro --strip-components 1
+tar xvf $CWD/openal-soft-$OPENAL.tar.gz -C \
+  $DEPS/openal-soft --strip-components 1
 tar xvf $CWD/sanitizers-cmake-$SANITIZERSCMAKE.tar.gz -C \
   $DEPS/cubeb/cmake/sanitizers-cmake --strip-components 1
 tar xvf $CWD/SDL-$SDL2.tar.gz -C \
@@ -165,7 +168,8 @@ echo "gitdir: ../../.git/modules/libressl" > $DEPS/libressl/.git
 echo "gitdir: ../../../.git/modules/libusb" > $DEPS/libusb/libusb/.git
 echo "gitdir: ../../.git/modules/libyuv" > $DEPS/libyuv/.git
 echo "gitdir: ../../../.git/modules/lodepng" > $DEPS/lodepng/lodepng/.git
-echo "gitdir: ../../.git/modules/nihstro" > $DEPS/nihstro/.git 
+echo "gitdir: ../../.git/modules/nihstro" > $DEPS/nihstro/.git
+echo "gitdir: ../../.git/modules/openal-soft" > $DEPS/openal-soft/.git
 echo "gitdir: ../../.git/modules/sdl2/SDL" > $DEPS/sdl2/SDL/.git
 echo "gitdir: ../../.git/modules/teakra" > $DEPS/teakra/.git
 echo "gitdir: ../../.git/modules/xbyak" > $DEPS/xbyak/.git
