@@ -38,7 +38,7 @@ DDSKTX=${DDSKTX:-42dd8aa6ded90b1ec06091522774feff51e83fc5}
 DISCORDRPC=${DISCORDRPC:-963aa9f3e5ce81a4682c6ca3d136cddda614db33}
 DYNARMIC=${DYNARMIC:-d5c2b473a831ca9e2a93bda30dc131b4fee7314f}
 ENET=${ENET:-4f8e9bdc4ce6d1f61a6274b0e557065a38190952}
-EXTSOUNDTOUCH=${EXTSOUNDTOUCH:-dd2252e9af3f2d6b749378173a4ae89551e06faf}
+EXTSOUNDTOUCH=${EXTSOUNDTOUCH:-2.3.2}
 FMTLIB=${FMTLIB:-a33701196adfad74917046096bf5a2aa0ab0bb50}
 GOOGLETEST=${GOOGLETEST:-800f5422ac9d9e0ad59cd860a2ef3a679588acb4}
 INIH=${INIH:-5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b}
@@ -120,7 +120,7 @@ tar xvf $CWD/dynarmic-$DYNARMIC.tar.gz -C \
   $DEPS/dynarmic --strip-components 1
 tar xvf $CWD/enet-$ENET.tar.gz -C \
   $DEPS/enet --strip-components 1
-tar xvf $CWD/ext-soundtouch-$EXTSOUNDTOUCH.tar.gz -C \
+tar xvf $CWD/soundtouch-$EXTSOUNDTOUCH.tar.gz -C \
   $DEPS/soundtouch --strip-components 1
 tar xvf $CWD/fmt-$FMTLIB.tar.gz -C \
   $DEPS/fmt --strip-components 1
