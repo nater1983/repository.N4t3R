@@ -6,7 +6,7 @@
 # leave one space after the ':'.
 
                |-----handy-ruler------------------------------------------------------|
-webapp-manager : webapp Run websites as if they were apps.
+webapp-manager : webapp-manager (Run websites as if they were apps.)
 webapp-manager :      
 webapp-manager : Right-click an empty area of the Web page to show the context menu.
 webapp-manager : In most browsers this menu contains navigation buttons.
