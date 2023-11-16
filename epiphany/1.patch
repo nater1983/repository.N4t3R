@@ -18,7 +18,7 @@ index 6fa180d98..293311793 100644
  #if USE_LIBPORTAL
 -#include <libportal/portal-gtk3.h>
 +#include <libportal-gtk3/portal-gtk3.h>
-#endif
+ #endif
  #include <string.h>
  #include <sys/stat.h>
  #include <sys/types.h>
