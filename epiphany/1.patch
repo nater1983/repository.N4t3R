@@ -1,0 +1,22 @@
+From 8cf70c8ceb16bc675343bab2e699c53be74af8c0 Mon Sep 17 00:00:00 2001
+From: Nathaniel Russell <46272571+nater1983@users.noreply.github.com>
+Date: Thu, 16 Nov 2023 00:57:01 +0000
+Subject: [PATCH] Update ephy-flatpak-utils.c
+
+---
+ lib/ephy-flatpak-utils.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/ephy-flatpak-utils.c b/lib/ephy-flatpak-utils.c
+index 6fa180d98..293311793 100644
+--- a/lib/ephy-flatpak-utils.c
++++ b/lib/ephy-flatpak-utils.c
+@@ -29,7 +29,7 @@
+ #include <fcntl.h>
+ #include <gio/gio.h>
+ #include <gio/gunixfdlist.h>
+-#include <libportal/portal-gtk3.h>
++#include <libportal-gtk3/portal-gtk3.h>
+ #include <string.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
