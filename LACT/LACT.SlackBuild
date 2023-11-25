@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for LACT 
+# Slackware build script for LACT ( AMDGPU Control Daemon )
 
 # Copyright 2022-2023 Nathaniel Russell <naterussell83@gmail.com>
 # All rights reserved.
@@ -45,7 +45,7 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   exit 0
 fi
 
-TMP=${TMP:-/tmp/njr}
+TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
@@ -79,6 +79,9 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 make build-release ; make install DESTDIR=$PKG/usr
+
+install -vDm 0755 $CWD/rc.lact -t $PKG/etc/rc.d/
+mv $PKG/etc/rc.d/{rc.lact,rc.lact.new}
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
