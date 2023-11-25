@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+    |-----handy-ruler------------------------------------------------------|
+LACT: LACT ( Linux AMDGPU Controller Daemon )
+LACT:
+LACT: This allows you to control your AMD GPU on a Linux system.
+LACT: Current features:
+LACT: * Viewing information about the GPU
+LACT: * Power/thermals monitoring
+LACT: * Fan curve control
+LACT: * Overclocking (GPU/VRAM clockspeed, voltage)
+LACT: * Power states configuration
+LACT:
+LACT: Homepage: https://github.com/ilya-zlobintsev/LACT
