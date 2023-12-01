@@ -1,0 +1,5 @@
+#!/bin/sh
+# Wrapper of OpenRC called from inittab
+
+set -e
+exec /sbin/openrc sysinit
