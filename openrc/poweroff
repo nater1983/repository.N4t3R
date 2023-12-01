@@ -1,0 +1,29 @@
+#!/bin/sh
+# ck-system-stop
+
+# Check based on init
+case "$(ps -p 1 -o comm=)" in
+	openrc-init)
+		SHUTDOWN_CMD=openrc-shutdown
+		SHUTDOWN_CMD_ARGS='-p now'
+	;;
+	runit)
+		SHUTDOWN_CMD=runit-init
+		SHUTDOWN_CMD_ARGS="0"
+	;;
+	*)
+		# sysvinit compatible
+		SHUTDOWN_CMD=shutdown
+		SHUTDOWN_CMD_ARGS='-h -P now'
+	;;
+esac
+
+if [ -x "/sbin/${SHUTDOWN_CMD}" ] ; then
+	/sbin/${SHUTDOWN_CMD} ${SHUTDOWN_CMD_ARGS}
+	exit $?
+elif [ -x "/usr/sbin/${SHUTDOWN_CMD}" ] ; then
+	/usr/sbin/${SHUTDOWN_CMD} ${SHUTDOWN_CMD_ARGS}
+	exit $?
+else
+	exit 1
+fi
