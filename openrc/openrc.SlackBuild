@@ -87,8 +87,7 @@ cd build
   CFLAGS="$SLKCFLAGS -fcommon" \
   meson .. \
     --buildtype=release \
-    --sbindir=/usr/sbin \
-    --libexecdir=/usr/libexec/rc \
+    --infodir=/usr/info \
     --libdir=/usr/lib${LIBDIRSUFFIX} \
     --localstatedir=/var \
     --mandir=/usr/man \
