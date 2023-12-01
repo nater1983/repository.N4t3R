@@ -93,7 +93,7 @@ cd build
     --localstatedir=/var \
     --mandir=/usr/man \
     --prefix=/usr \
-    --sysconfdir=/etc \
+    --sysconfdir=/etc/openrc \
     -Dsysvinit=true \
     -Dstrip=true
   "${NINJA:=ninja}"
