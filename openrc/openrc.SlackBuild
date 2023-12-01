@@ -82,25 +82,25 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-MAKEARGS+=(PREFIX=/usr)
-MAKEARGS+=(LIBNAME=lib${LIBDIRSUFFIX})
-MAKEARGS+=(LIBDIR=/usr/lib${LIBDIRSUFFIX})
-MAKEARGS+=(LIBEXECDIR=/usr/libexec/rc)
-#MAKEARGS+=(SYSCONFDIR=/etc)
-MAKEARGS+=(SYSCONFDIR=/etc/openrc)
-MAKEARGS+=(SBINDIR=/sbin)
-MAKEARGS+=(MANDIR=/usr/man)
-MAKEARGS+=(DOCDIR=/usr/doc/$PRGNAM-$VERSION)
-MAKEARGS+=(MKTERMCAP=ncurses)
-MAKEARGS+=(MKSYSVINIT=no)
-MAKEARGS+=(MKBASHCOMP=yes)
-MAKEARGS+=(MKZSHCOMP=yes)
-MAKEARGS+=(CFLAGS="$SLKCFLAGS -fcommon")
-#MAKEARGS+=(BRANDING="$(cat /etc/slackware-version)")
+mkdir build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson .. \
+    --buildtype=release \
+    --infodir=/usr/info \
+    --libdir=/usr/lib${LIBDIRSUFFIX} \
+    --localstatedir=/var \
+    --mandir=/usr/man \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    -Dsysvinit=true \
+    -Dstrip=true
+  "${NINJA:=ninja}"
+  DESTDIR=$PKG $NINJA install
+cd ..
 
-make "${MAKEARGS[@]}"
-
-make install "${MAKEARGS[@]}" DESTDIR=$PKG
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 install -Dm 0644 "$CWD/$PRGNAM.logrotate" "$PKG/etc/logrotate.d/${PRGNAM}.new"
 
