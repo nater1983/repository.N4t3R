@@ -92,8 +92,8 @@ cd build
     --localstatedir=/var \
     --mandir=/usr/man \
     --prefix=/usr \
+    --sysconfdir=/etc/openrc \
     -Drootprefix=/usr
-    -Dsysconfdir=/etc/openrc \
     -Dtermcap=ncurses \
     -Dselinux=disabled \
     -Dos=Linux \
