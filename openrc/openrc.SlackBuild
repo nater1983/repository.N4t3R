@@ -84,17 +84,24 @@ find -L . \
 
 mkdir build
 cd build
-  CFLAGS="$SLKCFLAGS" \
-  CXXFLAGS="$SLKCFLAGS" \
+  CFLAGS="$SLKCFLAGS -fcommon" \
   meson .. \
     --buildtype=release \
-    --infodir=/usr/info \
+    --sbindir=/usr/sbin \
+    --libexecdir=/usr/libexec/rc \
     --libdir=/usr/lib${LIBDIRSUFFIX} \
     --localstatedir=/var \
     --mandir=/usr/man \
     --prefix=/usr \
-    --sysconfdir=/etc/openrc \
-    -Dsysvinit=true \
+    -Dsysconfdir=/etc/openrc \
+    -Dtermcap=ncurses \
+    -Dselinux=disabled \
+    -Dos=Linux \
+    -Dpam=true \
+    -Dsysvinit=false \
+    -Dzsh-completions=true \
+    -Dbash-completions=true \
+    -Dbranding='"Slackware Current"' \
     -Dstrip=true
   "${NINJA:=ninja}"
   DESTDIR=$PKG $NINJA install
