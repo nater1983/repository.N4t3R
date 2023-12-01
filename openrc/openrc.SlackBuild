@@ -93,7 +93,7 @@ cd build
     --mandir=/usr/man \
     --prefix=/usr \
     --sysconfdir=/etc/openrc \
-    -Drootprefix=/usr
+    -Drootprefix=/usr \
     -Dtermcap=ncurses \
     -Dselinux=disabled \
     -Dos=Linux \
