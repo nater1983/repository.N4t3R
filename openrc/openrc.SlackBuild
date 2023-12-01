@@ -92,9 +92,9 @@ cd build
     --localstatedir=/var \
     --mandir=/usr/man \
     --prefix=/usr \
-    --libexecdir=/usr/libexec/rc \
+    --libexecdir=/usr/libexec \
     --sysconfdir=/etc/openrc \
-    -Drootprefix= \
+    -Drootprefix=usr \
     -Dtermcap=ncurses \
     -Dselinux=disabled \
     -Dos=Linux \
