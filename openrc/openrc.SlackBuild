@@ -108,9 +108,9 @@ install -Dm 0644 "$CWD/$PRGNAM.logrotate" "$PKG/etc/logrotate.d/${PRGNAM}.new"
 install -Dm 0644 "$CWD/rc.conf" "$PKG/etc/openrc/rc.conf.new"
 
 # Backup config files
-#for file in "$PKG"/etc/openrc/conf.d/*; do
-#  mv "${file}" "${file}.new"
-#done
+for file in "$PKG"/etc/openrc/conf.d/*; do
+  mv "${file}" "${file}.new"
+done
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
