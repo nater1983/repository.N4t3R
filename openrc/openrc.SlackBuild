@@ -105,7 +105,7 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 install -Dm 0644 "$CWD/$PRGNAM.logrotate" "$PKG/etc/logrotate.d/${PRGNAM}.new"
 
 # Backup rc.conf
-mv "$PKG/etc/openrc/rc.conf" "$PKG/etc/openrc/rc.conf.new"
+cat $CWD/rc.conf > $PKG/etc/openrc/rc.conf.new
 
 # Backup config files
 for file in "$PKG"/etc/openrc/conf.d/*; do
