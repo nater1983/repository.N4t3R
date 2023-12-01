@@ -94,7 +94,7 @@ cd build
     --prefix=/usr \
     --libexecdir=/usr/libexec \
     --sysconfdir=/etc/openrc \
-    -Drootprefix=/ \
+    -Drootprefix=/usr/libexec/rc \
     -Dtermcap=ncurses \
     -Dselinux=disabled \
     -Dos=Linux \
