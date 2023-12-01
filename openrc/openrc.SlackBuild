@@ -99,8 +99,8 @@ cd build
     -Dos=Linux \
     -Dpam=true \
     -Dsysvinit=false \
-    -Dzsh-completions=true \
-    -Dbash-completions=true \
+    -Dzsh-completions=false \
+    -Dbash-completions=false \
     -Dbranding='"Slackware Current"' \
     -Dstrip=true
   "${NINJA:=ninja}"
