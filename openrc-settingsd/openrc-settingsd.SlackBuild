@@ -119,7 +119,7 @@ if [ -d $PKG/usr/man ]; then
 fi
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a README NEWS COPYING AUTHORS \
+cp -a README TODO COPYING AUTHORS \
     $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
