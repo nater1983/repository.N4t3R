@@ -122,7 +122,7 @@ done
 #Move /usr/sbin to /sbin
 cd $PKG/usr/sbin
 find . -type f -not -path '*/\.*' -exec sed -i 's|/usr/sbin|/sbin|g' {} +
-mv $PKG/usr/sbin $PKG/
+mv $PKG/usr/sbin $PKG/ ; cd $TMP/$PRGNAM-$VERSION
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
