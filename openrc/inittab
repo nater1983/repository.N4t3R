@@ -66,6 +66,6 @@ c6:12345:respawn:/sbin/agetty 38400 tty6 linux
 
 # Runlevel 4 also starts /etc/rc.d/rc.4 to run a display manager for X.
 # Display managers are preferred in this order:  gdm, kdm, xdm
-x1:4:respawn:/etc/rc.d/rc.4
+x1:4:respawn:/etc/X11/startDM.sh
 
 # End of /etc/inittab
