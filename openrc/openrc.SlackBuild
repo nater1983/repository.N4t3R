@@ -119,6 +119,9 @@ for file in "$PKG"/etc/openrc/conf.d/*; do
   mv "${file}" "${file}.new"
 done
 
+#Move /usr/sbin to /sbin
+mv $PKG/usr/sbin $PKG/
+
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
