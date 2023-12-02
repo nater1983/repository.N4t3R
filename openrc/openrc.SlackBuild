@@ -92,7 +92,7 @@ cd build
     --libdir=/usr/lib${LIBDIRSUFFIX} \
     --localstatedir=/var \
     --mandir=/usr/man \
-    --prefix=/usr \
+    -Drootprefix=/usr \
     --sysconfdir=/etc/openrc \
     -Dtermcap=ncurses \
     -Dselinux=disabled \
