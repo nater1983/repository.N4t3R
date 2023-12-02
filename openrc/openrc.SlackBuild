@@ -120,6 +120,8 @@ for file in "$PKG"/etc/openrc/conf.d/*; do
 done
 
 #Move /usr/sbin to /sbin
+cd $PKG/usr/sbin
+find . -type f -not -path '*/\.*' -exec sed -i 's|/usr/sbin|/sbin|g' {} +
 mv $PKG/usr/sbin $PKG/
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
