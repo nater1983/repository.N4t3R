@@ -24,9 +24,6 @@ rc-status
 # Enabled services across all runlevels can be queried with:
 rc-update
 
-echo "
-FILE /etc/default/grub
-
-#GRUB_CMDLINE_LINUX_DEFAULT=""
-GRUB_CMDLINE_LINUX_DEFAULT="init=/sbin/openrc-init" 
-" > 
+# FILE /etc/default/grub
+# /* GRUB_CMDLINE_LINUX_DEFAULT="" */ -- Change this line to 
+# /* GRUB_CMDLINE_LINUX_DEFAULT="init=/sbin/openrc-init" */ this line
