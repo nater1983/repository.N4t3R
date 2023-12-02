@@ -120,7 +120,7 @@ for file in "$PKG"/etc/openrc/conf.d/*; do
 done
 
 #Move /usr/sbin to /sbin
-cd $PKG/usr/sbin
+cd $PKG/etc/openrc/init.d
 find . -type f -not -path '*/\.*' -exec sed -i 's|/usr/sbin|/sbin|g' {} +
 mv $PKG/usr/sbin $PKG/ ; cd $TMP/$PRGNAM-$VERSION
 
