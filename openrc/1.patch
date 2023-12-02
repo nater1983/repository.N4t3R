@@ -1,0 +1,24 @@
+From 7ee077dfa1c5be4bce3a348d7b9a3fbbcafc9630 Mon Sep 17 00:00:00 2001
+From: Nathaniel Russell <46272571+nater1983@users.noreply.github.com>
+Date: Sat, 2 Dec 2023 00:22:04 +0000
+Subject: [PATCH] Update meson.build
+
+---
+ meson.build | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 9f4fc5ee5..e1716de0e 100644
+--- a/meson.build
++++ b/meson.build
+@@ -98,9 +98,7 @@ endif
+ bindir = rootprefix / get_option('bindir')
+ libdir = rootprefix / get_option('libdir')
+ libexecdir = get_option('libexecdir')
+-if os == 'Linux' and libexecdir == 'libexec'
+-  libexecdir = 'lib'
+-endif
++
+ libexecdir = rootprefix / libexecdir
+ rc_libexecdir = libexecdir / 'rc'
+ rc_bindir = rc_libexecdir / 'bin'
