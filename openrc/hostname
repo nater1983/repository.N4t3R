@@ -1,4 +1,4 @@
-#!@SBINDIR@/openrc-run
+#!/sbin/openrc-run
 # Copyright (c) 2007-2015 The OpenRC Authors.
 # See the Authors file at the top-level directory of this distribution and
 # https://github.com/OpenRC/openrc/blob/HEAD/AUTHORS
@@ -21,7 +21,7 @@ start()
 {
 	local h source
 	if read -r h _ 2> /dev/null < /etc/HOSTNAME; then
-		source="/etc/HOSTNAME"
+		source="/bin/hostname $(cat /etc/HOSTNAME)"
 	elif [ -n "${hostname}" ]; then
 		h=${hostname}
 		source="/etc/conf.d/${RC_SVCNAME}"
