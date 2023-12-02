@@ -98,7 +98,7 @@ cd build
     -Dselinux=disabled \
     -Dos=Linux \
     -Dpam=true \
-    -Dsysvinit=false \
+    -Dsysvinit=true \
     -Dzsh-completions=false \
     -Dbash-completions=false \
     -Dbranding='"Slackware Current"' \
