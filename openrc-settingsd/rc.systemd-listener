@@ -7,7 +7,7 @@
 # Rewritten by Nathaniel Russell for sysvinit
 
 # Location for user services:
-sysdir="/etc/gnome/config"
+sysdir="/etc/config"
 
 # Monitor loop for org.freedesktop.systemd1.Manager:
 get_srv=0
