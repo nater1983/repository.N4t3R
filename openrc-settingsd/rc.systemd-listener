@@ -21,12 +21,12 @@ do
       # Check if the corresponding program is executable
       if echo "$line" | grep -q 'StartUnit' ; then
         $sysdir/"$srv" start
-        echo "Starting $srv Service"
+        echo "Starting $srv Service:"
       elif echo "$line" | grep -q 'StopUnit' ; then
         $sysdir/"$srv" stop
-        echo "Stopping $srv Service"
+        echo "Stopping $srv Service:"
       else
-        echo "Unsupported action for $srv Service"
+        echo "Unsupported action for $srv Service:"
       fi
     else
       echo "Failed to start/stop $srv Service: Program not found or not executable"
