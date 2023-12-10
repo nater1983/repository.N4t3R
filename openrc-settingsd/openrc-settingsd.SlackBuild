@@ -104,6 +104,9 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 install -vDm 0755 $CWD/rc.openrc-settingsd.new -t $PKG/etc/rc.d/
 install -vDm 0644 $CWD/systemd-listener.desktop -t $PKG/etc/xdg/autostart
 install -vDm 0755 $CWD/systemd-listener -t $PKG/bin/
+install -vDm 0755 $CWD/gnome-remote-desktop -t $PKG/etc/config
+install -vDm 0755 $CWD/gnome-user-share-webdav -t $PKG/etc/config
+install -vDm 0755 $CWD/rygel -t $PKG/etc/config
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
