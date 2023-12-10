@@ -4,9 +4,11 @@ host=$(hostname -s)
 start() {
 echo "Starting Openrc-Settingsd Services: "
         /usr/libexec/$NAME --syslog > /dev/null 2>&1 &
+# Start systemd-listener
+if [ -x /etc/rc.d/rc.systemd-listener ]; then
 echo "Starting Systemd Listener	Services: "
-        /etc/rc.d/rc.systemd-listener > /dev/null 2>&1 &
-
+  /etc/rc.d/rc.systemd-listener > /dev/null 2>&1 &
+fi
 }
 
 stop() {
