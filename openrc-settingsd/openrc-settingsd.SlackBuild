@@ -102,6 +102,7 @@ cd ..
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 install -vDm 0755 $CWD/rc.openrc-settingsd.new -t $PKG/etc/rc.d/
+install -vDm 0644 $CWD/systemd-listener.desktop -t $PKG/etc/xdg/autostart
 install -vDm 0755 $CWD/systemd-listener -t $PKG/bin/
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
