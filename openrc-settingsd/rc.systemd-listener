@@ -4,6 +4,7 @@
 # and attempt to start/stop a dinit service with the same name.
 #
 # Written by Bob Funk.
+# Rewritten by Nathaniel Russell for sysvinit
 
 # Location for user services:
 sysdir="/etc/gnome/config"
@@ -18,15 +19,21 @@ do
     srv="$(echo $line | cut -d\" -f 2 | sed 's/\.service//g')"
     if [ -x "$sysdir/$srv" ]; then
       # Check if the corresponding program is executable
-      $sysdir/"$srv"  # Start or stop the program as needed
+      if echo "$line" | grep -q 'StartUnit' ; then
+        $sysdir/"$srv" start
+        echo "Starting $srv Service"
+      elif echo "$line" | grep -q 'StopUnit' ; then
+        $sysdir/"$srv" stop
+        echo "Stopping $srv Service"
+      else
+        echo "Unsupported action for $srv Service"
+      fi
     else
-      echo "Failed to start/stop $srv: Program not found or not executable"
+      echo "Failed to start/stop $srv Service: Program not found or not executable"
     fi
     get_srv=0
     srv_cmd=""
-  elif echo "$line" | grep -q 'StartUnit' ; then
-    get_srv=1
-  elif echo "$line" | grep -q 'StopUnit' ; then
+  elif echo "$line" | grep -q 'StartUnit\|StopUnit' ; then
     get_srv=1
   fi
 done
