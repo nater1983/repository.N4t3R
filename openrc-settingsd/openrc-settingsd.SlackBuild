@@ -22,15 +22,13 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-wget -c https://gitlab.com/postmarketOS/openrc-settingsd/-/archive/v1.4.0/openrc-settingsd-v1.4.0.tar.gz
-
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=openrc-settingsd
 VERSION=${VERSION:-1.4.0}
-TAG=${TAG:-}
+TAG=${TAG:-_SBo}
 BUILD=${BUILD:-1}
-PKGTYPE=${PKGTYPE:-txz}
+PKGTYPE=${PKGTYPE:-tgz}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -45,7 +43,7 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   exit 0
 fi
 
-TMP=${TMP:-/tmp/build}
+TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
@@ -102,11 +100,6 @@ cd ..
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 install -vDm 0755 $CWD/rc.openrc-settingsd.new -t $PKG/etc/rc.d/
-install -vDm 0644 $CWD/systemd-listener.desktop -t $PKG/etc/xdg/autostart
-install -vDm 0755 $CWD/systemd-listener -t $PKG/bin/
-install -vDm 0755 $CWD/gnome-remote-desktop -t $PKG/etc/config
-install -vDm 0755 $CWD/gnome-user-share-webdav -t $PKG/etc/config
-install -vDm 0755 $CWD/rygel -t $PKG/etc/config
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -133,7 +126,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
