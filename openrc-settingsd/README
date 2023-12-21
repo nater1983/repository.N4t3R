@@ -1,0 +1,3 @@
+OpenRC-settingsd provides an implementation of the the hostnamed,
+localed, and timedated D-Bus services for OpenRC-based systems - in
+particular, for typical installations of Gentoo or Slackware Linux.
