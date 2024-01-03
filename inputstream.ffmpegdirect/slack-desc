@@ -6,7 +6,7 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
                         |-----handy-ruler------------------------------------------------------|
-inputstream.ffmpegdirect: kodi (Addon for ffmpegdirect input)
+inputstream.ffmpegdirect: inputstream.ffmpegdirect (Addon for ffmpegdirect input)
 inputstream.ffmpegdirect:
 inputstream.ffmpegdirect: XBMC is an award winning media center application for Linux, Mac OS X,
 inputstream.ffmpegdirect: Windows and XBox. The ultimate hub for all your media, XBMC is easy to
