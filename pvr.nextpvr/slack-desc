@@ -6,7 +6,7 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
            |-----handy-ruler------------------------------------------------------|
-pvr.nextpvr: kodi (Addon for nextpvr PVR)
+pvr.nextpvr: pvr.nextpvr (Addon for nextpvr PVR)
 pvr.nextpvr:
 pvr.nextpvr: XBMC is an award winning media center application for Linux, Mac OS X,
 pvr.nextpvr: Windows and XBox. The ultimate hub for all your media, XBMC is easy to
