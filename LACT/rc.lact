@@ -13,7 +13,7 @@ stop() {
     # Find the Process ID for AMDGPU Control Daemon running instance
     pid=$(ps -e | awk '/[l]act/ {print $1}')
     if [ -n "$pid" ]; then
-        pkill -P "$pid"
+        pkill -P "$pid" > /dev/null 2>&1
     else
         echo "No running AMDGPU Control Daemon found."
     fi
