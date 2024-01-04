@@ -82,7 +82,7 @@ find -L . \
 if [ -f "/usr/share/gir-1.0/Adw-1.gir" ]; then
   LIBADWAITA_FLAGS="-DGIR_OPTION=/usr/share/gir-1.0/Adw-1.gir"
   echo "Building with libadwaita support"
-make build-release --features=adw CPPFLAGS="$LIBADWAITA_FLAGS" ; make install DESTDIR=$PKG PREFIX=/usr
+build-release-libadwaita CPPFLAGS="$LIBADWAITA_FLAGS" ; make install DESTDIR=$PKG PREFIX=/usr
 
 install -vDm 0755 $CWD/rc.lact -t $PKG/etc/rc.d/
 mv $PKG/etc/rc.d/{rc.lact,rc.lact.new}
