@@ -88,11 +88,6 @@ mv $PKG/usr/share/applications/io.github.lact-linux.desktop $PKG/usr/share/appli
 sed -i 's|Exec=lact gui|Exec=lact-adw gui|g' $PKG/usr/share/applications/io.github.lact-adw.desktop
 sed -i 's|Name=LACT|Name=LACT-ADW|g' $PKG/usr/share/applications/io.github.lact-adw.desktop
 
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION-ADW
-cp -a README.md LICENSE API.md \
-    $PKG/usr/doc/$PRGNAM-$VERSION-ADW
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION-ADW/$PRGNAM.SlackBuild
-
 sleep 3
 echo "Building without libadwaita"
 cd $TMP
