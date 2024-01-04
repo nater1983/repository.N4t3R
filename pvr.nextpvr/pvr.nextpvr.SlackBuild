@@ -81,9 +81,9 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 cd pvr.nextpvr
-VERSION=`git describe --tags --abbrev=0`
 mkdir -p build
 cd build
+VERSION=`git describe --tags --abbrev=0`
   cmake \
     -DADDONS_TO_BUILD=pvr.nextpvr \
     -DADDON_SRC_PREFIX=../.. \
