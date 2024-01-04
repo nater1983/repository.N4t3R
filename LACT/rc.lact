@@ -1,21 +1,28 @@
-#!/bin/bash 
-NAME=lact
+#!/bin/bash
+
+NAME="lact"
 host=$(hostname -s)
+
 start() {
-echo "Starting AMDGPU Control Daemon Services: "
-        $NAME daemon > /dev/null 2>&1 & 
+    echo "Starting AMDGPU Control Daemon Services..."
+    $NAME daemon > /dev/null 2>&1 &
 }
 
 stop() {
-echo "Stopping AMDGPU Control Daemon Services: "
-#Find the Process ID for AMDGPU Control Daemon running instance
-ps -ef | grep lact | grep -v grep | awk '{print $2}' | xargs kill
+    echo "Stopping AMDGPU Control Daemon Services..."
+    # Find the Process ID for AMDGPU Control Daemon running instance
+    pid=$(ps -e | awk '/[l]act/ {print $1}')
+    if [ -n "$pid" ]; then
+        kill "$pid"
+    else
+        echo "No running AMDGPU Control Daemon found."
+    fi
 }
 
 restart() {
-  stop
-  sleep 3
-  start
+    stop
+    sleep 3
+    start
 }
 
 case "$1" in
@@ -27,3 +34,5 @@ case "$1" in
         exit 1
         ;;
 esac
+
+exit 0
