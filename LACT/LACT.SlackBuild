@@ -79,9 +79,9 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 # Check if libadwaita is available
-if pkg-config --exists libadwaita; then
-    LIBADWAITA_FLAGS=$(pkg-config --cflags --libs libadwaita)
-    echo "Building with libadwaita support"
+if [ -f "/usr/share/gir-1.0/Adw-1.gir" ]; then
+  LIBADWAITA_FLAGS="-DGIR_OPTION=/usr/share/gir-1.0/Adw-1.gir"
+  echo "Building with libadwaita support"
 make build-release --features=adw CPPFLAGS="$LIBADWAITA_FLAGS" ; make install DESTDIR=$PKG PREFIX=/usr
 
 install -vDm 0755 $CWD/rc.lact -t $PKG/etc/rc.d/
