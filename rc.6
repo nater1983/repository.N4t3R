@@ -82,6 +82,16 @@ if [ -x /etc/rc.d/rc.local_shutdown ]; then
   /etc/rc.d/rc.local_shutdown stop
 fi
 
+#Stop avahidaemon
+if [ -x /etc/rc.d/rc.avahidaemon ]; then
+/etc/rc.d/rc.avahidaemon stop
+fi
+
+#Stop avahidnsconfd
+if [ -x /etc/rc.d/rc.avahidnsconfd ]; then
+/etc/rc.d/rc.avahidnsconfd stop
+fi 
+
 # Stop the Apache web server:
 if [ -x /etc/rc.d/rc.httpd ]; then
   /etc/rc.d/rc.httpd stop
