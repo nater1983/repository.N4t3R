@@ -18,7 +18,7 @@ DOWNLOAD_x86_64="https://github.com/blitzingeagle/ext-boost/archive/3c27c785ad0f
                  https://www.surina.net/soundtouch/soundtouch-2.3.2.tar.gz \
                  https://github.com/fmtlib/fmt/archive/2dd4fa8742fdac36468f8d8ea3e06e78215551f8/fmt-2dd4fa8742fdac36468f8d8ea3e06e78215551f8.tar.gz \
                  https://github.com/google/googletest/archive/40412d85124f7c6f3d88454583c4633e5e10fc8c/googletest-40412d85124f7c6f3d88454583c4633e5e10fc8c.tar.gz \
-                 https://github.com/KhronosGroup/glslang/archive/1e4955adbcd9b3f5eaf2129e918ca057baed6520/gslang-1e4955adbcd9b3f5eaf2129e918ca057baed6520.tar.gz \
+                 https://github.com/KhronosGroup/glslang/archive/1e4955adbcd9b3f5eaf2129e918ca057baed6520/glslang-1e4955adbcd9b3f5eaf2129e918ca057baed6520.tar.gz \
                  https://github.com/bylaws/libadrenotools/archive/deec5f75ee1a8ccbe32c8780b1d17284fc87b0f1/libadrenotools-deec5f75ee1a8ccbe32c8780b1d17284fc87b0f1.tar.gz \
                  https://github.com/blitzingeagle/ext-library-headers/archive/3b3e28dbe6d033395ce2967fa8030825e7b89de7/ext-library-headers-3b3e28dbe6d033395ce2967fa8030825e7b89de7.tar.gz \
                  https://github.com/benhoyt/inih/archive/5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b/inih-5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b.tar.gz \
