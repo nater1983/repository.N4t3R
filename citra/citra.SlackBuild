@@ -159,7 +159,7 @@ tar xvf $CWD/faad2-$FAAD2.tar.gz -C \
   $DEPS/faad2/faad2 --strip-components 1
 tar xvf $CWD/glslang-$GLSLANG.tar.gz -C \
   $DEPS/glslang --strip-components 1
-tar xvf $CWD/library-headers-$HEADERS.tar.gz -C \
+tar xvf $CWD/ext-library-headers-$HEADERS.tar.gz -C \
   $DEPS/library-headers --strip-components 1
 tar xvf $CWD/libadrenotools-$LIBARE.tar.gz -C \
   $DEPS/libadrenotools --strip-components 1
