@@ -155,6 +155,22 @@ tar xvf $CWD/xbyak-$XBYAK.tar.gz -C \
   $DEPS/xbyak --strip-components 1
 tar xvf $CWD/zstd-$ZSTD.tar.gz -C \
   $DEPS/zstd --strip-components 1
+tar xvf $CWD/faad2-$FAAD2.tar.gz -C \
+  $DEPS/faad2/faad2 --strip-components 1
+tar xvf $CWD/gslang-$GSLANG.tar.gz -C \
+  $DEPS/gslang --strip-components 1
+tar xvf $CWD/library-headers-$HEADERS.tar.gz -C \
+  $DEPS/library-headers --strip-components 1
+tar xvf $CWD/libadrenotools-$LIBARE.tar.gz -C \
+  $DEPS/libadrenotools --strip-components 1
+tar xvf $CWD/oaknut-$OAKNUT.tar.gz -C \
+  $DEPS/oaknut --strip-components 1
+tar xvf $CWD/sirit-$SIRIT.tar.gz -C \
+  $DEPS/sirit --strip-components 1
+tar xvf $CWD/Vulkan-Headers-$VULHEADER.tar.gz -C \
+  $DEPS/vulkan-headers --strip-components 1
+tar xvf $CWD/VulkanMemoryAllocator-$VULMEM.tar.gz -C \
+  $DEPS/vma --strip-components 1
 
 # citra checks for external components by checking for their .git files.
 # Since these are not included when we downloaded the commit tarballs, we'll create them.
@@ -180,7 +196,15 @@ echo "gitdir: ../../.git/modules/openal-soft" > $DEPS/openal-soft/.git
 echo "gitdir: ../../.git/modules/sdl2/SDL" > $DEPS/sdl2/SDL/.git
 echo "gitdir: ../../.git/modules/teakra" > $DEPS/teakra/.git
 echo "gitdir: ../../.git/modules/xbyak" > $DEPS/xbyak/.git
-echo "gitdir: ../../.git/modules/zstd" > $DEPS/zstd/.git 
+echo "gitdir: ../../.git/modules/zstd" > $DEPS/zstd/.git
+echo "gitdir: ../../.git/modules/faad2" > $DEPS/faad2/faad2/.git 
+echo "gitdir: ../../.git/modules/gslang" > $DEPS/gslang/.git 
+echo "gitdir: ../../.git/modules/library-headers" > $DEPS/library-headers/.git 
+echo "gitdir: ../../.git/modules/libadrenotools" > $DEPS/libadrenotools/.git 
+echo "gitdir: ../../.git/modules/oaknut" > $DEPS/oaknut/.git 
+echo "gitdir: ../../.git/modules/sirit" > $DEPS/sirit/.git 
+echo "gitdir: ../../.git/modules/vulkan-headers" > $DEPS/vulkan-headers/.git 
+echo "gitdir: ../../.git/modules/vma" > $DEPS/vma/.git 
 
 cd $PRGNAM-$PRGVER
 chown -R root:root .
