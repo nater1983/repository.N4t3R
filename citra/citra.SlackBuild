@@ -55,6 +55,7 @@ OPENAL=${OPENAL:-d9fed51aa6391debc31dbbca550f055c980afe70}
 SANITIZERSCMAKE=${SANITIZERSCMAKE:-aab6948fa863bc1cbe5d0850bc46b9ef02ed4c1a}
 SDL2=${SDL2:-ac13ca9ab691e13e8eebe9684740ddcb0d716203}
 SIRIT=${SIRIT:-4ab79a8c023aa63caaa93848b09b9fe8b183b1a9}
+SPIRV=${SPIRV:-c214f6f2d1a7253bb0e9f195c2dc5b0659dc99ef}
 TEAKRA=${TEAKRA:-01db7cdd00aabcce559a8dddce8798dabb71949b}
 VULHEADER=${VULHEADER:-217e93c664ec6704ec2d8c36fa116c1a4a1e2d40}
 VULMEM=${VULMEM:-0e89587db3ebee4d463f191bd296374c5fafc8ea}
@@ -171,6 +172,8 @@ tar xvf $CWD/Vulkan-Headers-$VULHEADER.tar.gz -C \
   $DEPS/vulkan-headers --strip-components 1
 tar xvf $CWD/VulkanMemoryAllocator-$VULMEM.tar.gz -C \
   $DEPS/vma --strip-components 1
+tar xvf $CWD/SPIRV-Headers-$SPIRV.tar.gz -C \
+  $DEPS/sirit/SPIRV-Headers --strip-components 1
 
 # citra checks for external components by checking for their .git files.
 # Since these are not included when we downloaded the commit tarballs, we'll create them.
@@ -197,14 +200,15 @@ echo "gitdir: ../../.git/modules/sdl2/SDL" > $DEPS/sdl2/SDL/.git
 echo "gitdir: ../../.git/modules/teakra" > $DEPS/teakra/.git
 echo "gitdir: ../../.git/modules/xbyak" > $DEPS/xbyak/.git
 echo "gitdir: ../../.git/modules/zstd" > $DEPS/zstd/.git
-echo "gitdir: ../../.git/modules/faad2" > $DEPS/faad2/faad2/.git 
-echo "gitdir: ../../.git/modules/glslang" > $DEPS/glslang/.git 
-echo "gitdir: ../../.git/modules/library-headers" > $DEPS/library-headers/.git 
-echo "gitdir: ../../.git/modules/libadrenotools" > $DEPS/libadrenotools/.git 
-echo "gitdir: ../../.git/modules/oaknut" > $DEPS/oaknut/.git 
-echo "gitdir: ../../.git/modules/sirit" > $DEPS/sirit/.git 
-echo "gitdir: ../../.git/modules/vulkan-headers" > $DEPS/vulkan-headers/.git 
-echo "gitdir: ../../.git/modules/vma" > $DEPS/vma/.git 
+echo "gitdir: ../../.git/modules/faad2" > $DEPS/faad2/faad2/.git
+echo "gitdir: ../../.git/modules/glslang" > $DEPS/glslang/.git
+echo "gitdir: ../../.git/modules/library-headers" > $DEPS/library-headers/.git
+echo "gitdir: ../../.git/modules/libadrenotools" > $DEPS/libadrenotools/.git
+echo "gitdir: ../../.git/modules/oaknut" > $DEPS/oaknut/.git
+echo "gitdir: ../../.git/modules/sirit" > $DEPS/sirit/.git
+echo "gitdir: ../../.git/modules/sirit/SPIRV-Headers" > $DEPS/sirit/SPIRV-Headers/.git
+echo "gitdir: ../../.git/modules/vulkan-headers" > $DEPS/vulkan-headers/.git
+echo "gitdir: ../../.git/modules/vma" > $DEPS/vma/.git
 
 cd $PRGNAM-$PRGVER
 chown -R root:root .
