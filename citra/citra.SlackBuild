@@ -173,7 +173,7 @@ tar xvf $CWD/Vulkan-Headers-$VULHEADER.tar.gz -C \
 tar xvf $CWD/VulkanMemoryAllocator-$VULMEM.tar.gz -C \
   $DEPS/vma --strip-components 1
 tar xvf $CWD/SPIRV-Headers-$SPIRV.tar.gz -C \
-  $DEPS/sirit/SPIRV-Headers --strip-components 1
+  $DEPS/sirit/externals/SPIRV-Headers --strip-components 1
 
 # citra checks for external components by checking for their .git files.
 # Since these are not included when we downloaded the commit tarballs, we'll create them.
@@ -206,7 +206,7 @@ echo "gitdir: ../../.git/modules/library-headers" > $DEPS/library-headers/.git
 echo "gitdir: ../../.git/modules/libadrenotools" > $DEPS/libadrenotools/.git
 echo "gitdir: ../../.git/modules/oaknut" > $DEPS/oaknut/.git
 echo "gitdir: ../../.git/modules/sirit" > $DEPS/sirit/.git
-echo "gitdir: ../../.git/modules/sirit/SPIRV-Headers" > $DEPS/sirit/SPIRV-Headers/.git
+echo "gitdir: ../../.git/modules/sirit/externals/SPIRV-Headers" > $DEPS/sirit/externals/SPIRV-Headers/.git
 echo "gitdir: ../../.git/modules/vulkan-headers" > $DEPS/vulkan-headers/.git
 echo "gitdir: ../../.git/modules/vma" > $DEPS/vma/.git
 
