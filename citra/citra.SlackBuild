@@ -2,7 +2,7 @@
 
 # Slackware build script for citra
 
-# Copyright 2022-2023 Nathaniel Russell <naterussell83@gmail.com>
+# Copyright 2022-2024 Nathaniel Russell <naterussell83@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=citra
 PRGVER=${PRGVER:-"69e758d73852ccb38577dd93ff7ae0402f681e60"}
-VERSION=${VERSION:-0.1905}
+VERSION=${VERSION:-0.2090}
 BOOST=${BOOST:-3c27c785ad0f8a742af02e620dc225673f3a12d8}
 CATCH=${CATCH:-3f0283de7a9c43200033da996ff9093be3ac84dc}
 CPPJWT=${CPPJWT:-e12ef06218596b52d9b5d6e1639484866a8e7067}
