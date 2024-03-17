@@ -21,7 +21,7 @@ DOWNLOAD_x86_64="https://github.com/blitzingeagle/ext-boost/archive/3c27c785ad0f
                  https://github.com/bylaws/libadrenotools/archive/deec5f75ee1a8ccbe32c8780b1d17284fc87b0f1/libadrenotools-deec5f75ee1a8ccbe32c8780b1d17284fc87b0f1.tar.gz \
                  https://github.com/blitzingeagle/ext-library-headers/archive/3b3e28dbe6d033395ce2967fa8030825e7b89de7/ext-library-headers-3b3e28dbe6d033395ce2967fa8030825e7b89de7.tar.gz \
                  https://github.com/benhoyt/inih/archive/5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b/inih-5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b.tar.gz \
-                 https://github.com/blitzingeagle/ext-libressl-portable/commit/d4fc7348a3fbe9c659a373e28a3b50f052f7c50a/ext-libressl-portable-d4fc7348a3fbe9c659a373e28a3b50f052f7c50a.tar.gz \
+                 https://github.com/blitzingeagle/ext-libressl-portable/archive/d4fc7348a3fbe9c659a373e28a3b50f052f7c50a/ext-libressl-portable-d4fc7348a3fbe9c659a373e28a3b50f052f7c50a.tar.gz \
                  https://github.com/libusb/libusb/archive/54350bd83fbcc9555abc57988d6fd73f3b9e9ff8/libusb-54350bd83fbcc9555abc57988d6fd73f3b9e9ff8.tar.gz \
                  https://github.com/lemenkov/libyuv/archive/6900494d90ae095d44405cd4cc3f346971fa69c9/libyuv-6900494d90ae095d44405cd4cc3f346971fa69c9.tar.gz \
                  https://github.com/lvandeve/lodepng/archive/18964554bc769255401942e0e6dfd09f2fab2093/lodepng-18964554bc769255401942e0e6dfd09f2fab2093.tar.gz \
