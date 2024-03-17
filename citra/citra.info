@@ -36,30 +36,37 @@ DOWNLOAD_x86_64="https://github.com/blitzingeagle/ext-boost/archive/3c27c785ad0f
                  https://github.com/KhronosGroup/Vulkan-Headers/archive/217e93c664ec6704ec2d8c36fa116c1a4a1e2d40/Vulkan-Headers-217e93c664ec6704ec2d8c36fa116c1a4a1e2d40.tar.gz \
                  https://github.com/herumi/xbyak/archive/a1ac3750f9a639b5a6c6d6c7da4259b8d6790989/xbyak-a1ac3750f9a639b5a6c6d6c7da4259b8d6790989.tar.gz \
                  https://github.com/facebook/zstd/archive/63779c798237346c2b245c546c40b72a5a5913fe/zstd-63779c798237346c2b245c546c40b72a5a5913fe.tar.gz"
-MD5SUM_x86_64="20516efd88b35d8071de24562c9a8854 \
-               68b777fb3397d3488005497258f1210e \
-               f8fedaded495c9effa0c94ed3e17b308 \
+MD5SUM_x86_64="79b0534b20053714b1bf43095bed8471 \
+               a88cce396deecd49bc15325c5924e6ff \
+               b78dc8c7051ffc8c33e32b567c021a4e \
+               3e7a3a18f87a32ca69a8d66ad4d46f38 \
+               25bad6d414b6297add0201f3ae25d5e7 \
                aaedf57982eb620c232238b87d136a2c \
-               461ef11e5964e11d9702bb905e61af2c \
-	       118c901afd06c155c658d6f6d85784ad \
-               5a40e81e1d6b2438c9b618ffcb679430 \
-               8e479c0b0af279df39e68188510e8715 \
-               fbaa9993d3756175444d9fe612729bb0 \
+               88251188feb117b9d1ff8e2187bd1c51 \
+               d321a2b534637006e0bdeeca4c3bea8c \
+               5084ccb50c556b31669f3ecc7afbdbad \
+               daf9e7c09d449f01c187bb8dbfbe5a01 \
+               344c77c5090098101d3904ff1bb9e9fc \
                f96dcd8f181700c9bf94869fedd2557a \
-               d11181250ea5119cd4cd43693e00ced8 \
-               5069920ee4e07003d7b135d0d477ced8 \
-               b0b23c6e3137c995ed842b6fbae37e7b \
+               ccf1709d40747092f7619e28a836e4f7 \
+               70e5033b572c0479d6a8249018db0666 \
+               6ba5662d19157192df334dcdac82b33e \
+               875f461cd87598454cc16547fcb22132 \
+               3d32ff58617759d9ba6e18ea135c4bad \
                2efd90e94765baf588dc83c699a59b55 \
-               390d2b55703008acb8eceab019002581 \
-               9c5f7279aa00af06d8810abeaf165c05 \
+               bd8e4cf0483c047c3636bdbf3d366c1a \
+               ce4004504b977972f0eae708df985ab9 \
                85196b92d055cb9e8b01a34ae5f62da2 \
                9850cc6d95840a8ce41da7dcaadf4ea0 \
                496cca29e17d0b2c5b4f60142eb19297 \
+               f484c83dc044a2265d1fcd0b00fcebe2 \
+               c7ff307da42c1bec46df65d1fc496733 \
                0492fedbd255d1d831db432c2578a0c1 \
-	       d1bc6ea361b9d65d05fb698968466ace \
+               4719e20235cec5c1390f396f6ba17a7e \
+               058db201df6151e3cbd07dc8929885c4 \
                6dda693557776e2b77be1f91c0e318bf \
                7255f1628e93263ea1a8a32d24fb53e5 \
-               1b8367e01dc956bb8bfafcc7a835af71"
+               04e1c5a631beff62d8bbffaf63fd81e8"
 REQUIRES=""
 MAINTAINER="Nathaniel Russell"
 EMAIL="naterussell83@gmail.com"
