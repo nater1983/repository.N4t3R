@@ -25,8 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=citra
-SRCNAM=$PRGNAM-nightly-nightly
-PRGVER=${PRGVER:-"1905"}
+PRGVER=${PRGVER:-"69e758d73852ccb38577dd93ff7ae0402f681e60"}
 VERSION=${VERSION:-0.1905}
 BOOST=${BOOST:-80a171a179c1f901e4f8dfc8962417f44865ceec}
 CATCH=${CATCH:-3f0283de7a9c43200033da996ff9093be3ac84dc}
@@ -94,8 +93,8 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $SRCNAM-$PRGVER
-tar xvf $CWD/$SRCNAM-$PRGVER.tar.?z
+rm -rf $PRGNAM-$PRGVER
+tar xvf $CWD/$PRGNAM-$PRGVER.tar.?z
 
 # citra has quite a few external dependencies, we need to extract them to the correct location.
 tar xvf $CWD/ext-boost-$BOOST.tar.gz -C \
@@ -175,7 +174,7 @@ echo "gitdir: ../../.git/modules/teakra" > $DEPS/teakra/.git
 echo "gitdir: ../../.git/modules/xbyak" > $DEPS/xbyak/.git
 echo "gitdir: ../../.git/modules/zstd" > $DEPS/zstd/.git 
 
-cd $SRCNAM-$PRGVER
+cd $PRGNAM-$PRGVER
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
