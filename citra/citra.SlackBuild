@@ -211,6 +211,7 @@ echo "gitdir: ../../.git/modules/vulkan-headers" > $DEPS/vulkan-headers/.git
 echo "gitdir: ../../.git/modules/vma" > $DEPS/vma/.git
 
 cd $PRGNAM-$PRGVER
+sed -i 's|DEPENDS "${GIT_DIR}/index" "${OpenAL_SOURCE_DIR}/version.cmake"|DEPENDS "${OpenAL_SOURCE_DIR}/version.cmake"|g' externals/openal-soft/CMakeLists.txt
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
