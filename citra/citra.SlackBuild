@@ -41,7 +41,7 @@ EXTSOUNDTOUCH=${EXTSOUNDTOUCH:-2.3.2}
 FAAD2=${FAAD2:-09b3c850c606e7fedd06597223e54344e8d23c8c}
 FMTLIB=${FMTLIB:-2dd4fa8742fdac36468f8d8ea3e06e78215551f8}
 GOOGLETEST=${GOOGLETEST:-40412d85124f7c6f3d88454583c4633e5e10fc8c}
-GSLANG=${GSLANG:-1e4955adbcd9b3f5eaf2129e918ca057baed6520}
+GLSLANG=${GLSLANG:-1e4955adbcd9b3f5eaf2129e918ca057baed6520}
 HEADERS=${HEADERS:-3b3e28dbe6d033395ce2967fa8030825e7b89de7}
 INIH=${INIH:-5e1d9e2625842dddb3f9c086a50f22e4f45dfc2b}
 LIBARE=${LIBARE:-deec5f75ee1a8ccbe32c8780b1d17284fc87b0f1}
@@ -157,7 +157,7 @@ tar xvf $CWD/zstd-$ZSTD.tar.gz -C \
   $DEPS/zstd --strip-components 1
 tar xvf $CWD/faad2-$FAAD2.tar.gz -C \
   $DEPS/faad2/faad2 --strip-components 1
-tar xvf $CWD/gslang-$GSLANG.tar.gz -C \
+tar xvf $CWD/glslang-$GLSLANG.tar.gz -C \
   $DEPS/gslang --strip-components 1
 tar xvf $CWD/library-headers-$HEADERS.tar.gz -C \
   $DEPS/library-headers --strip-components 1
@@ -198,7 +198,7 @@ echo "gitdir: ../../.git/modules/teakra" > $DEPS/teakra/.git
 echo "gitdir: ../../.git/modules/xbyak" > $DEPS/xbyak/.git
 echo "gitdir: ../../.git/modules/zstd" > $DEPS/zstd/.git
 echo "gitdir: ../../.git/modules/faad2" > $DEPS/faad2/faad2/.git 
-echo "gitdir: ../../.git/modules/gslang" > $DEPS/gslang/.git 
+echo "gitdir: ../../.git/modules/glslang" > $DEPS/glslang/.git 
 echo "gitdir: ../../.git/modules/library-headers" > $DEPS/library-headers/.git 
 echo "gitdir: ../../.git/modules/libadrenotools" > $DEPS/libadrenotools/.git 
 echo "gitdir: ../../.git/modules/oaknut" > $DEPS/oaknut/.git 
