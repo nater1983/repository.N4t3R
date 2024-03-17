@@ -67,7 +67,7 @@ fi
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-DEPS=$TMP/$SRCNAM-$PRGVER/externals
+DEPS=$TMP/$PRGNAM-$PRGVER/externals
 
 if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
