@@ -83,27 +83,14 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-mkdir build
-cd build
-  CFLAGS="$SLKCFLAGS" \
-  CXXFLAGS="$SLKCFLAGS" \
-  meson setup .. \
-    --buildtype=release \
-    --infodir=/usr/info \
-    --libdir=/usr/lib${LIBDIRSUFFIX} \
-    --libexecdir=/usr/libexec \
-    --datadir=/usr/share \
-    --bindir=/usr/bin \
-    --sbindir=/usr/sbin \
-    --includedir=/usr/include \
-    --localstatedir=/var \
-    --mandir=/usr/man \
-    --prefix=/usr \
-    --sysconfdir=/etc \
-    -Dstrip=true
-  "${NINJA:=ninja}"
-  DESTDIR=$PKG $NINJA install
-cd ..
+sed -e 's:_ "github.com/snapcore/squashfuse"::g' -i systemd/systemd.go
+mkdir -p src/github.com/snapcore
+ln -s ../../../ src/github.com/snapcore/snapd
+export GOPATH=$(pwd)
+rm -f go.mod
+export GO111MODULE=off
+./mkversion.sh $VERSION
+sed -e "s:github.com/snapcore/bolt:github.com/boltdb/bolt:g" -i advisor/*.go
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
