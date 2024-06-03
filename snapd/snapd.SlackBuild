@@ -30,7 +30,7 @@ PRGNAM=snapd
 SRCNAM=snapd_
 VERSION=${VERSION:-2.63}
 SRCVER=2.63.vendor
-TAG=_gfs
+TAG=_njr
 BUILD=${BUILD:-1}
 PKGTYPE=${PKGTYPE:-txz}
 
