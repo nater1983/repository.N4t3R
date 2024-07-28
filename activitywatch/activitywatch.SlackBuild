@@ -27,7 +27,7 @@ wget -c https://github.com/ActivityWatch/activitywatch/archive/v0.13.1/activityw
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=activitywatch
-VERSION=0.12.1
+VERSION=${VERSION:-0.13.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-}
 PKGTYPE=${PKGTYPE:-txz}
@@ -45,7 +45,7 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   exit 0
 fi
 
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/njr}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
