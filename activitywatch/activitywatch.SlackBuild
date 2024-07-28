@@ -22,6 +22,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+wget -c https://github.com/ActivityWatch/activitywatch/archive/v0.13.1/activitywatch-0.13.1.tar.gz
+
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=activitywatch
@@ -66,10 +68,8 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM
-git clone https://github.com/ActivityWatch/activitywatch.git
-cd $PRGNAM
-wget --no-verbose https://github.com/ActivityWatch/activitywatch/releases/download/v$VERSION/activitywatch-v$VERSION-linux-x86_64.zip
+rm -rf $PRGNAM-$VERSION
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -77,11 +77,15 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-unzip -x -q activitywatch-v$VERSION-linux-x86_64.zip
-mkdir -p $PKG/usr/games
-cp -a activitywatch $PKG/usr/games/activitywatch
-mkdir -p $PKG/etc/xdg/autostart
-cp -a activitywatch/aw-qt.desktop $PKG/etc/xdg/autostart
+make update
+
+python3 -m build --wheel --no-isolation
+python3 -m installer --destdir "$PKG" dist/*.whl
+
+#mkdir -p $PKG/usr/games
+#cp -a activitywatch $PKG/usr/games/activitywatch
+#mkdir -p $PKG/etc/xdg/autostart
+#cp -a activitywatch/aw-qt.desktop $PKG/etc/xdg/autostart
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
