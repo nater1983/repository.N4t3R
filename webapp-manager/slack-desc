@@ -5,15 +5,15 @@
 # exactly 11 lines for the formatting to be correct.  It's also customary to
 # leave one space after the ':'.
 
-               |-----handy-ruler------------------------------------------------------|
-webapp-manager : webapp-manager (Run websites as if they were apps.)
-webapp-manager :      
-webapp-manager : Right-click an empty area of the Web page to show the context menu.
-webapp-manager : In most browsers this menu contains navigation buttons.
-webapp-manager : 
-webapp-manager : https://github.com/linuxmint/webapp-manager  
-webapp-manager : 
-webapp-manager :   
-webapp-manager :
-webapp-manager : 
-webapp-manager :
+              |-----handy-ruler------------------------------------------------------|
+webapp-manager: webapp-manager (Run websites as if they were apps.)
+webapp-manager:      
+webapp-manager: Right-click an empty area of the Web page to show the context menu.
+webapp-manager: In most browsers this menu contains navigation buttons.
+webapp-manager: 
+webapp-manager: https://github.com/linuxmint/webapp-manager  
+webapp-manager: 
+webapp-manager:   
+webapp-manager:
+webapp-manager: 
+webapp-manager:
