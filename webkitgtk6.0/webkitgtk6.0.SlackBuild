@@ -1,8 +1,9 @@
 #!/bin/bash
 #
-# Slackware build script for webkit2gtk6.0
+# Slackware build script for webkitgtk6.0
 #
 # Copyright 2016-2017 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
+# Copyright 2024 Nathaniel Russell <naterussell83@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,24 +23,19 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-wget -c https://webkitgtk.org/releases/webkitgtk-2.46.4.tar.xz
-wget -c https://gitlab.gnome.org/GNOME/vala/-/raw/0.56.17/vapi/webkitgtk-6.0.vapi
-wget -c https://gitlab.gnome.org/GNOME/vala/-/raw/0.56.17/vapi/webkitgtk-web-extension-6.0.vapi
-wget -c https://gitlab.gnome.org/GNOME/vala/-/raw/0.56.17/vapi/javascriptcoregtk-6.0.vapi
-
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=webkit2gtk6.0
+PRGNAM=webkitgtk6.0
 SRCNAM=webkitgtk
 VERSION=${VERSION:-2.46.4}
-TAG=_gfs
+TAG=${TAG:-_SBo}
 BUILD=${BUILD:-1}
 PKGTYPE=${PKGTYPE:-txz}
-VALADIR="usr/share/"`ls /usr/share/|grep "vala-"|awk -F"/" '{print $1}'`"/vapi"
+VALADIR="usr/share/"$( ls /usr/share/|grep "vala-"|awk -F"/" '{print $1}' )"/vapi"
 
-TMP=${TMP:-/tmp/gfs}
+TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-$CWD}
+OUTPUT=${OUTPUT:-/tmp}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -55,20 +51,13 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
 fi
 
 if [ "$ARCH" = "i586" ]; then
-  SLKCFLAGS="-O2 -march=i586 -mtune=i686 -g1 -fcf-protection=none"
+  SLKCFLAGS="-O2 -march=i586 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "i686" ]; then
-  SLKCFLAGS="-O2 -march=i686 -mtune=i686 -g1 -fcf-protection=none"
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-  OPT='-flto=thin -march=x86-64-v3'
-  LDOPT='-flto=thin -Wl,-O1,--sort-common,--icf=safe'
-  SLKCFLAGS="-O2 -fPIC -march=x86-64 -mtune=generic -g1 -fcf-protection=none"
-  LIBDIRSUFFIX="64"
-elif [ "$ARCH" = "aarch64" ]; then
-  OPT='-flto=thin -march=armv8-a'
-  LDOPT='-flto=thin -Wl,-O1,--sort-common,--icf=safe'
-  SLKCFLAGS="-O2 -fPIC -march=armv8-a -mtune=generic -g1 -fcf-protection=none"
+  SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
@@ -95,11 +84,6 @@ find -L . \
 
 mkdir -p build
 cd build
-  CC=clang \
-  CXX=clang++ \
-  CFLAGS="$OPT -fdata-sections -ffunction-sections" \
-  CXXFLAGS="$OPT -fdata-sections -ffunction-sections" \
-  LDFLAGS="$LDOPT -fuse-ld=lld -Wl,--gc-sections" \
   cmake -DPORT=GTK \
 	-DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
 	-DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
@@ -113,8 +97,12 @@ cd build
 	-DENABLE_JOURNALD_LOG=OFF \
         -DUSE_SYSTEM_MALLOC=on \
 	-DUSE_GTK4=ON \
-        -DUSE_JPEGXL=ON \
-        -Wno-dev \
+        -DUSE_LIBBACKTRACE=OFF \
+	-DUSE_JPEGXL=OFF \
+        -DUSE_GSTREAMER_TRANSCODER=OFF \
+        -DUSE_SYSTEM_SYSPROF_CAPTURE=NO \
+        -DUSE_AVIF=OFF \
+	-Wno-dev \
         -G Ninja \
         ..
 
@@ -123,12 +111,12 @@ cd build
 "${NINJA:=ninja}" -j$(expr $(nproc) / 2)
 DESTDIR=$PKG $NINJA -j1 install
 
-mkdir -p $PKG/usr/share/gtk-doc/html/webkit2gtk-6.0
-mkdir -p $PKG/usr/share/gtk-doc/html/webkit2gtk-web-extension-6.0
+mkdir -p $PKG/usr/share/gtk-doc/html/webkitgtk-6.0
+mkdir -p $PKG/usr/share/gtk-doc/html/webkitgtk-web-extension-6.0
 install -m 0644 ../Documentation/webkitgtk-6.0/* \
-  $PKG/usr/share/gtk-doc/html/webkit2gtk-6.0
+  $PKG/usr/share/gtk-doc/html/webkitgtk-6.0
 install -m 0644 ../Documentation/webkitgtk-web-process-extension-6.0/* \
-  $PKG/usr/share/gtk-doc/html/webkit2gtk-web-extension-6.0
+  $PKG/usr/share/gtk-doc/html/webkitgtk-web-extension-6.0
 
 #add vala bindings
 mkdir -p $PKG/$VALADIR
@@ -148,9 +136,6 @@ rm -fr $PKG/usr/share/doc/
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-if [ -f $CWD/slack-required ]; then cat $CWD/slack-required > $PKG/install/slack-required; fi
-if [ -f $CWD/slack-suggests ]; then cat $CWD/slack-suggests > $PKG/install/slack-suggests; fi
-if [ -f $CWD/slack-conflicts ]; then cat $CWD/slack-conflicts > $PKG/install/slack-conflicts; fi
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
