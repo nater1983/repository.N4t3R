@@ -7,6 +7,8 @@ of systems from desktop computers to embedded systems like phones,
 tablets, and televisions.
 
 NOTE:
-This package builds the 4.0 WebKit API. If you need 4.1 WebKit API,
-use webkit2gtk4.1. Don't install both at the same time!!
-
+This package builds the 6.0 WebKit API. If you need 4.0 WebKit API,
+use webkit2gtk. If you need 4.1 WebKit API,
+use webkit2gtk4.1. Don't install all of them at the same time!!
+Unless you use this  	-DENABLE_WEBDRIVER=OFF \ in the 4.0 API SB
+and the 4.1 SB.
