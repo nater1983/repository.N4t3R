@@ -75,6 +75,7 @@ cd $SRCNAM-$VERSION
 patch -Np1 -i $CWD/icu76.patch
 patch -Np1 -i $CWD/unhide-deprecated-api.patch
 patch -Np1 -i $CWD/1cfbdd74e97ea29636ce442322b5399b43937401.patch
+sed -i 's/set(GTK_MINIMUM_VERSION 4\.6\.0)/set(GTK_MINIMUM_VERSION 4.4.0)/'     Source/cmake/OptionsGTK.cmake
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
