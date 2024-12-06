@@ -1,0 +1,38 @@
+static std::optional<std::string> base64EncodedPNGData(GdkTexture* texture) {
+    if (!texture)
+        return std::nullopt;
+
+    // Define the path for the temporary file
+    const char* tempFilePath = "/tmp/texture_output.png";
+
+    // Save the texture to the temporary file
+    if (!gdk_texture_save_to_png(texture, tempFilePath)) {
+        g_warning("Failed to save texture to PNG file.");
+        return std::nullopt;
+    }
+
+    // Read the file into memory
+    GError* error = nullptr;
+    gsize pngSize = 0;
+    gchar* pngData = nullptr;
+
+    if (!g_file_get_contents(tempFilePath, &pngData, &pngSize, &error)) {
+        g_warning("Failed to read PNG file: %s", error->message);
+        g_error_free(error);
+        g_unlink(tempFilePath); // Cleanup the temporary file
+        return std::nullopt;
+    }
+
+    // Encode the data in Base64
+    gchar* base64Encoded = g_base64_encode(reinterpret_cast<const guchar*>(pngData), pngSize);
+
+    // Free the raw PNG data and remove the temporary file
+    g_free(pngData);
+    g_unlink(tempFilePath);
+
+    // Convert the encoded string to std::string and free the GLib string
+    std::string result(base64Encoded);
+    g_free(base64Encoded);
+
+    return result;
+}
