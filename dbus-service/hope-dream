@@ -1,38 +1,20 @@
-static std::optional<std::string> base64EncodedPNGData(GdkTexture* texture) {
-    if (!texture)
-        return std::nullopt;
+    if (auto texture = snapshot.texture()) {
+        // Use gdk_texture_save_to_png_bytes if available in GTK 4.4.1
+        GRefPtr<GBytes> pngBytes = adoptGRef(gdk_texture_save_to_png_bytes(texture));
+        if (!pngBytes) {
+            g_warning("Failed to save texture to PNG bytes.");
+            return std::nullopt;
+        }
 
-    // Define the path for the temporary file
-    const char* tempFilePath = "/tmp/texture_output.png";
+        size_t pngSize;
+        auto* pngData = static_cast<const uint8_t*>(g_bytes_get_data(pngBytes.get(), &pngSize));
+        if (!pngData || pngSize == 0) {
+            g_warning("PNG data is empty.");
+            return std::nullopt;
+        }
 
-    // Save the texture to the temporary file
-    if (!gdk_texture_save_to_png(texture, tempFilePath)) {
-        g_warning("Failed to save texture to PNG file.");
-        return std::nullopt;
-    }
-
-    // Read the file into memory
-    GError* error = nullptr;
-    gsize pngSize = 0;
-    gchar* pngData = nullptr;
-
-    if (!g_file_get_contents(tempFilePath, &pngData, &pngSize, &error)) {
-        g_warning("Failed to read PNG file: %s", error->message);
-        g_error_free(error);
-        g_unlink(tempFilePath); // Cleanup the temporary file
+        return base64EncodeToString(std::span<const uint8_t>(pngData, pngSize));
+    } else {
+        g_warning("Snapshot texture is null in GTK4.");
         return std::nullopt;
     }
-
-    // Encode the data in Base64
-    gchar* base64Encoded = g_base64_encode(reinterpret_cast<const guchar*>(pngData), pngSize);
-
-    // Free the raw PNG data and remove the temporary file
-    g_free(pngData);
-    g_unlink(tempFilePath);
-
-    // Convert the encoded string to std::string and free the GLib string
-    std::string result(base64Encoded);
-    g_free(base64Encoded);
-
-    return result;
-}
