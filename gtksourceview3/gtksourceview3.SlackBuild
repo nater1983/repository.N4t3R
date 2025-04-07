@@ -24,8 +24,9 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PKGNAM=gtksourceview3
+PRGNAM=gtksourceview3
 SRCNAM=gtksourceview
+VERSION=${VERSION:-3.24.11}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -84,19 +85,16 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
-  --docdir=/usr/doc/$PKGNAM-$VERSION \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
   --enable-glade-catalog \
   --build=$ARCH-slackware-linux
 make $NUMJOBS || make || exit 1
 make install DESTDIR=$PKG || exit 1
 
-# Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
-# Strip binaries:
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 
-# Compress man pages
 find $PKG/usr/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
