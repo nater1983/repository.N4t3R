@@ -78,6 +78,12 @@ tar xvf $CWD/$SRCNAM$SRCVER.tar.?z
 cd $PRGNAM-$VERSION
 chown -R root:root .
 
+  export CGO_ENABLED="1"
+  export CGO_CFLAGS="${SLKCFLAGS}"
+  export CGO_CPPFLAGS="${SLKCFLAGS}"
+  export CGO_CXXFLAGS="${SLKCFLAGS}"
+  export CGO_LDFLAGS="${LDFLAGS}"
+
   make -C data \
        BINDIR=/bin \
        LIBEXECDIR=/usr/lib${LIBDIRSUFFIX} \
