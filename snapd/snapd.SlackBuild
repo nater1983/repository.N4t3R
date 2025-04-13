@@ -108,7 +108,7 @@ EXTRA_GO_LDFLAGS = -w -s
 __DEFINES__
 
   make -f packaging/snapd.mk \
-       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION"
+       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION/packaging"
 
 cd cmd
 echo "$VERSION" > VERSION
