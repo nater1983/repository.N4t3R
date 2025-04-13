@@ -113,7 +113,7 @@ __DEFINES__
 ./mkversion.sh $VERSION
 
 make -f packaging/snapd.mk \
-       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION"
+       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION/snapd"
 
 make -C data \
        BINDIR=/bin \
