@@ -82,7 +82,7 @@ chown -R root:root .
   export CGO_CFLAGS="${SLKCFLAGS}"
   export CGO_CPPFLAGS="${SLKCFLAGS}"
   export CGO_CXXFLAGS="${SLKCFLAGS}"
-  export CGO_LDFLAGS="${LDFLAGS}"
+  export CGO_LDFLAGS="${SLKCFLAGS}"
 
   make -C data \
        BINDIR=/bin \
