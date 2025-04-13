@@ -110,8 +110,6 @@ EXTRA_GO_BUILD_FLAGS = -trimpath
 EXTRA_GO_LDFLAGS = -w -s
 __DEFINES__
 
-./mkversion.sh $VERSION
-
 cd cmd
   autoreconf -i -f
   ./configure \
