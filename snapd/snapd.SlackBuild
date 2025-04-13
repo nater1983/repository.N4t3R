@@ -111,7 +111,11 @@ EXTRA_GO_LDFLAGS = -w -s
 __DEFINES__
 
 cd cmd
-  autoreconf -i -f
+rm -f aclocal.m4 ltmain.sh libtool > /dev/null 2>&1
+aclocal > /dev/null 2>&1
+automake --add-missing > /dev/null 2>&1
+autoconf > /dev/null 2>&1
+libtoolize > /dev/null 2>&1
   ./configure \
     --prefix=/usr \
     --sysconfdir=/etc \
