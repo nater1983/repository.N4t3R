@@ -101,9 +101,11 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+mv $PKG/usr/share/man $PKG/usr
+
 # Compress and link manpages, if any:
-if [ -d $PKG/usr/share/man ]; then
-  ( mv  $PKG/usr/share/man $PKG/usr
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
     for manpagedir in $(find . -type d -name "man*") ; do
       ( cd $manpagedir
         for eachpage in $( find . -type l -maxdepth 1) ; do
