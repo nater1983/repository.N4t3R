@@ -94,6 +94,7 @@ autoreconf -i -f
     --enable-merged-usr
 make
 make install-strip DESTDIR=$PKG
+cd ..
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
@@ -124,7 +125,7 @@ if [ -d $PKG/usr/info ]; then
 fi
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a   \
+cp -a   *.md \
     $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
