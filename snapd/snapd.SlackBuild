@@ -83,9 +83,10 @@ aclocal > /dev/null 2>&1
 automake --add-missing > /dev/null 2>&1
 autoconf > /dev/null 2>&1
 libtoolize > /dev/null 2>&1
-  ../mkversion.sh $VERSION
-
-  autoreconf -i -f
+cd ..
+  ./mkversion.sh $VERSION
+cd cmd
+autoreconf -i -f
   ./configure \
     --prefix=/usr \
     --sysconfdir=/etc \
