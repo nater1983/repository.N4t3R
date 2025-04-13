@@ -85,8 +85,7 @@ automake --add-missing
 autoconf
 libtoolize
 
-autoreconf -i -f
-  ./configure \
+./configure \
     --prefix=/usr \
     --sysconfdir=/etc \
     --localstatedir=/var \
