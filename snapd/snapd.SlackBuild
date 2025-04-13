@@ -76,11 +76,11 @@ cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$SRCNAM$SRCVER.tar.?z
 cd $PRGNAM-$VERSION/cmd
-rm -f aclocal.m4 ltmain.sh libtool > /dev/null 2>&1
-aclocal > /dev/null 2>&1
-automake --add-missing > /dev/null 2>&1
-autoconf > /dev/null 2>&1
-libtoolize > /dev/null 2>&1
+rm -f aclocal.m4 ltmain.sh libtool
+aclocal
+automake --add-missing
+autoconf
+libtoolize
 cd ..
   ./mkversion.sh $VERSION
 cd cmd
