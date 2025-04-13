@@ -85,6 +85,9 @@ chown -R root:root .
        SNAP_MOUNT_DIR=/var/lib/snapd/snap \
        SNAPD_ENVIRONMENT_FILE=/etc/default/snapd
 
+  make -f packaging/snapd.mk \
+       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION"
+
 cd cmd
 echo "$VERSION" > VERSION
 autoreconf -i -f
