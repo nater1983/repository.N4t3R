@@ -114,7 +114,6 @@ EXTRA_GO_LDFLAGS = -w -s
 __DEFINES__
 
 sed -i 's/\<ldflags\>/gccgoflags/g' packaging/snapd.mk
-sed -e "s:github.com/snapcore/bolt:github.com/boltdb/bolt:g" -i advisor/*.go
 
   make -f packaging/snapd.mk \
        SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION/packaging"
