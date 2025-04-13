@@ -78,6 +78,13 @@ tar xvf $CWD/$SRCNAM$SRCVER.tar.?z
 cd $PRGNAM-$VERSION
 chown -R root:root .
 
+  make -C data \
+       BINDIR=/bin \
+       LIBEXECDIR=/usr/lib${LIBDIRSUFFIX} \
+       SYSTEMDSYSTEMUNITDIR=/usr/lib/systemd/system \
+       SNAP_MOUNT_DIR=/var/lib/snapd/snap \
+       SNAPD_ENVIRONMENT_FILE=/etc/default/snapd
+
 cd cmd
 echo "$VERSION" > VERSION
 autoreconf -i -f
