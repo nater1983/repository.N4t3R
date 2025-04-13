@@ -92,7 +92,8 @@ autoreconf -i -f
     --enable-selinux=no \
     --enable-nvidia-biarch \
     --enable-merged-usr
-  make
+make
+make install-strip DESTDIR=$PKG
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
