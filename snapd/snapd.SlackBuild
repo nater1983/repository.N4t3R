@@ -22,14 +22,14 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-wget -c https://github.com/snapcore/snapd/releases/download/2.68.4/snapd_2.68.4.vendor.tar.xz
+wget -c https://github.com/snapcore/snapd/releases/download/2.68.3/snapd_2.68.3.vendor.tar.xz
 
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=snapd
 SRCNAM=snapd_
-VERSION=${VERSION:-2.68.4}
-SRCVER=2.68.4.vendor
+VERSION=${VERSION:-2.68.3}
+SRCVER=$VERSION.vendor
 TAG=_njr
 BUILD=${BUILD:-1}
 PKGTYPE=${PKGTYPE:-txz}
