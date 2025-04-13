@@ -129,7 +129,8 @@ cd cmd
     --localstatedir=/var \
     --libexecdir=/usr/lib${LIBDIRSUFFIX}/snapd \
     --with-snap-mount-dir=/var/lib/snapd/snap \
-    --enable-apparmor \
+    --disable-apparmor \
+    --enable-selinux=no \
     --enable-nvidia-biarch \
     --enable-merged-usr
   make $MAKEFLAGS
