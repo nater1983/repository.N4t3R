@@ -76,16 +76,15 @@ cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$SRCNAM$SRCVER.tar.?z
 cd $PRGNAM-$VERSION
-  ./mkversion.sh $VERSION
+echo "$VERSION" > cmd/VERSION
+
 cd cmd
 rm -f aclocal.m4 ltmain.sh libtool
 aclocal
 automake --add-missing
 autoconf
 libtoolize
-cd ..
-  ./mkversion.sh $VERSION
-cd cmd
+
 autoreconf -i -f
   ./configure \
     --prefix=/usr \
