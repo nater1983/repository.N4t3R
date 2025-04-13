@@ -112,15 +112,6 @@ __DEFINES__
 
 ./mkversion.sh $VERSION
 
-make -f packaging/snapd.mk \
-       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION/snapd"
-
-make -C data \
-       BINDIR=/bin \
-       LIBEXECDIR=/usr/lib${LIBDIRSUFFIX} \
-       SNAP_MOUNT_DIR=/var/lib/snapd/snap \
-       SNAPD_ENVIRONMENT_FILE=/etc/default/snapd
-
 cd cmd
   autoreconf -i -f
   ./configure \
