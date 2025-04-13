@@ -127,7 +127,7 @@ libtoolize > /dev/null 2>&1
     --enable-selinux=no \
     --enable-nvidia-biarch \
     --enable-merged-usr
-  make $MAKEFLAGS
+  make
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
