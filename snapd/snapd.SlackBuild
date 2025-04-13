@@ -75,7 +75,9 @@ mkdir -p $TMP $PKG
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$SRCNAM$SRCVER.tar.?z
-cd $PRGNAM-$VERSION/cmd
+cd $PRGNAM-$VERSION
+  ./mkversion.sh $VERSION
+cd cmd
 rm -f aclocal.m4 ltmain.sh libtool
 aclocal
 automake --add-missing
