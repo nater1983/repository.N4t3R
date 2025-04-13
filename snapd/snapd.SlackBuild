@@ -73,9 +73,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf $SRCNAM-$SRCVER
-tar xvf $CWD/$SRCNAM-$SRCVER.tar.?z || exit 1
-cd $SRCNAM-$SRCVER || exit 1
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$SRCNAM$SRCVER.tar.?z || exit 1
+cd $PRGNAM-$VERSION || exit 1
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -91,6 +91,28 @@ rm -f go.mod
 export GO111MODULE=off
 ./mkversion.sh $VERSION
 sed -e "s:github.com/snapcore/bolt:github.com/boltdb/bolt:g" -i advisor/*.go
+
+make -f packaging/snapd.mk \
+       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION"
+
+make -C data \
+       BINDIR=/bin \
+       LIBEXECDIR=/usr/lib \
+       SNAP_MOUNT_DIR=/var/lib/snapd/snap \
+       SNAPD_ENVIRONMENT_FILE=/etc/default/snapd
+
+cd cmd
+  autoreconf -i -f
+  ./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --libexecdir=/usr/lib/snapd \
+    --with-snap-mount-dir=/var/lib/snapd/snap \
+    --enable-apparmor \
+    --enable-nvidia-biarch \
+    --enable-merged-usr
+  make $MAKEFLAGS
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
