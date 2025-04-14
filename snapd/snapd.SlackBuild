@@ -108,7 +108,7 @@ builddir = $TMP/$PRGNAM-$VERSION/_go_build
 with_core_bits = 0
 with_alt_snap_mount_dir = 1
 with_apparmor = 0
-with_testkeys = 
+with_testkeys = 0
 EXTRA_GO_BUILD_FLAGS = -trimpath
 EXTRA_GO_LDFLAGS = -w -s
 __DEFINES__
