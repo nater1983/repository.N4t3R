@@ -103,11 +103,13 @@ with_alt_snap_mount_dir = 1
 with_apparmor = 0
 with_testkeys = ${WITH_TEST_KEYS:-0}
 EXTRA_GO_BUILD_FLAGS = -trimpath
-EXTRA_GO_LDFLAGS = -w -s
+EXTRA_GO_LDFLAGS = -compressdwarf=false -w -s
 __DEFINES__
 
 sed -i 's/\<ldflags\>/gccgoflags/g' packaging/snapd.mk
-sed -i 's/^GO_TAGS = nosecboot$/GO_TAGS =/' packaging/snapd.mk
+#sed -i 's/^GO_TAGS = nosecboot$/GO_TAGS =/' packaging/snapd.mk
+
+echo "$VERSION" > VERSION
 
   make -f packaging/snapd.mk \
        SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION/packaging"
@@ -120,7 +122,6 @@ sed -i 's/^GO_TAGS = nosecboot$/GO_TAGS =/' packaging/snapd.mk
        SNAPD_ENVIRONMENT_FILE=/etc/default/snapd
 
 cd cmd
-echo "$VERSION" > VERSION
 autoreconf -i -f
 
 ./configure \
@@ -144,7 +145,13 @@ cd ..
      SNAP_MOUNT_DIR=/var/lib/snapd/snap \
      DESTDIR="$PKG"
 
-  make -C cmd install DESTDIR="$pkgdir/"
+  make -C cmd install DESTDIR="$PKG"
+
+  make -f packaging/snapd.mk \
+       SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION/packaging" \
+       DESTDIR="$PKG" \
+       install
+
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
