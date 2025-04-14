@@ -107,6 +107,7 @@ EXTRA_GO_LDFLAGS = -w -s
 __DEFINES__
 
 sed -i 's/\<ldflags\>/gccgoflags/g' packaging/snapd.mk
+sed -i 's/^GO_TAGS = nosecboot$/GO_TAGS =/' packaging/snapd.mk
 
   make -f packaging/snapd.mk \
        SNAPD_DEFINES_DIR="$TMP/$PRGNAM-$VERSION/packaging"
