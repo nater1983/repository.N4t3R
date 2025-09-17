@@ -79,7 +79,7 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 git clone https://github.com/desktop-app/cmake_helpers.git cmake
-cd cmake_helpers
+cd cmake
 git checkout 483a10954b0fafa7f759a82847b066c44466074c
 cd ../
 
