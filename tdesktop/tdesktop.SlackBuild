@@ -86,7 +86,7 @@ git clone https://gitlab.com/mnauw/cppgir.git cppgir
 cd cppgir
 git checkout 33ee935b39efd03bb7ab8f62ad02f7f2cd018dc8
 
-cd ../../../
+cd ../../../../
 
 sed -i '/add_checked_subdirectory(ada)/d' cmake/external/CMakeLists.txt
 
