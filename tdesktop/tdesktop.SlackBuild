@@ -85,8 +85,10 @@ cd external/glib
 git clone https://gitlab.com/mnauw/cppgir.git cppgir
 cd cppgir
 git checkout 2a7d9cef68202a29d5e8a679ce9519c76eb26dc3
-
-cd ../../../../
+git clone https://github.com/martinmoene/expected-lite.git expected-lite
+cd expected-lite
+git checkout 95b9cb015fa17baa749c2b396b335906e1596a9e
+cd ../../../../../
 
 sed -i '/add_checked_subdirectory(ada)/d' cmake/external/CMakeLists.txt
 
