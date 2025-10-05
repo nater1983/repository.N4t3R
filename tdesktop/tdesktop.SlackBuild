@@ -84,7 +84,7 @@ git checkout 483a10954b0fafa7f759a82847b066c44466074c
 cd external/glib
 git clone https://gitlab.com/mnauw/cppgir.git cppgir
 cd cppgir
-git checkout 33ee935b39efd03bb7ab8f62ad02f7f2cd018dc8
+git checkout 2a7d9cef68202a29d5e8a679ce9519c76eb26dc3
 
 cd ../../../../
 
