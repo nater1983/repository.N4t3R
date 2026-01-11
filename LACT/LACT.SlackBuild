@@ -22,12 +22,12 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-wget -c https://github.com/ilya-zlobintsev/LACT/archive/v0.5.1/LACT-0.5.1.tar.gz
+wget -c https://github.com/ilya-zlobintsev/LACT/archive/v0.8.3/LACT-0.8.3.tar.gz
 
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=LACT
-VERSION=${VERSION:-0.5.1}
+VERSION=${VERSION:-0.8.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-}
 PKGTYPE=${PKGTYPE:-txz}
@@ -78,60 +78,51 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# Check if libadwaita is available
+# --- Optional libadwaita build ---
 if [ -f "/usr/share/gir-1.0/Adw-1.gir" ]; then
-  LIBADWAITA_FLAGS="-DGIR_OPTION=/usr/share/gir-1.0/Adw-1.gir"
-  echo "Building with libadwaita support"
-make build-release-libadwaita CPPFLAGS="$LIBADWAITA_FLAGS" ; make install DESTDIR=$PKG PREFIX=/usr
-mv $PKG/usr/bin/lact $PKG/usr/bin/lact-adw
-mv $PKG/usr/share/applications/io.github.lact-linux.desktop $PKG/usr/share/applications/io.github.lact-adw.desktop
-sed -i 's|Exec=lact gui|Exec=lact-adw gui|g' $PKG/usr/share/applications/io.github.lact-adw.desktop
-sed -i 's|Name=LACT|Name=LACT-ADW|g' $PKG/usr/share/applications/io.github.lact-adw.desktop
+    echo "Building with libadwaita support"
 
-sleep 3
-echo "Building without libadwaita"
-cd $TMP
-cd $PRGNAM-$VERSION
-make build-release CPPFLAGS="$LIBADWAITA_FLAGS" ; make install DESTDIR=$PKG PREFIX=/usr
+    LIBADWAITA_FLAGS="-DGIR_OPTION=/usr/share/gir-1.0/Adw-1.gir"
 
-install -vDm 0755 $CWD/rc.lact -t $PKG/etc/rc.d/
-mv $PKG/etc/rc.d/{rc.lact,rc.lact.new}
+    make clean
+    make build-release-libadwaita CPPFLAGS="$LIBADWAITA_FLAGS"
+    make install DESTDIR="$PKG" PREFIX=/usr
 
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
-  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+    # Rename binary and desktop file for libadwaita build
+    mv "$PKG/usr/bin/lact" "$PKG/usr/bin/lact-adw"
+    mv "$PKG/usr/share/applications/io.github.lact-linux.desktop" \
+       "$PKG/usr/share/applications/io.github.lact-adw.desktop"
 
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a README.md LICENSE API.md \
-    $PKG/usr/doc/$PRGNAM-$VERSION
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+    sed -i 's|Exec=lact gui|Exec=lact-adw gui|g' \
+        "$PKG/usr/share/applications/io.github.lact-adw.desktop"
+    sed -i 's|Name=LACT|Name=LACT-ADW|g' \
+        "$PKG/usr/share/applications/io.github.lact-adw.desktop"
 
-mkdir -p $PKG/install
-cat $CWD/slack-desc > $PKG/install/slack-desc
-zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
-
-cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
-
+    echo "libadwaita build completed successfully"
 else
-    echo "libadwaita not found, building without it"
-make build-release CPPFLAGS="$LIBADWAITA_FLAGS" ; make install DESTDIR=$PKG PREFIX=/usr
-
-install -vDm 0755 $CWD/rc.lact -t $PKG/etc/rc.d/
-mv $PKG/etc/rc.d/{rc.lact,rc.lact.new}
-
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
-  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
-
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a README.md LICENSE API.md \
-    $PKG/usr/doc/$PRGNAM-$VERSION
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-
-mkdir -p $PKG/install
-cat $CWD/slack-desc > $PKG/install/slack-desc
-zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
-
-cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
-
+    echo "libadwaita not found — skipping lact-adw build"
 fi
+
+# --- Always build the non-libadwaita version ---
+echo "Building standard (non-libadwaita) version"
+make clean
+make build-release
+make install DESTDIR="$PKG" PREFIX=/usr
+
+# --- Common packaging steps ---
+install -vDm 0755 "$CWD/rc.lact" -t "$PKG/etc/rc.d/"
+mv "$PKG/etc/rc.d/rc.lact" "$PKG/etc/rc.d/rc.lact.new"
+
+find "$PKG" -print0 | xargs -0 file | grep -E "executable|shared object" | \
+  grep ELF | cut -f1 -d: | xargs strip --strip-unneeded 2>/dev/null || true
+
+mkdir -p "$PKG/usr/doc/$PRGNAM-$VERSION"
+cp -a README.md LICENSE API.md "$PKG/usr/doc/$PRGNAM-$VERSION"
+cat "$CWD/$PRGNAM.SlackBuild" > "$PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild"
+
+mkdir -p "$PKG/install"
+cat "$CWD/slack-desc" > "$PKG/install/slack-desc"
+zcat "$CWD/doinst.sh.gz" > "$PKG/install/doinst.sh"
+
+cd "$PKG" || exit 1
+/sbin/makepkg -l y -c n "$OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
