@@ -4,6 +4,8 @@ flatpak run com.discordapp.DiscordCanary
 
 https://www.youtube.com/watch?v=RxmUO4StldM
 
+acme.sh --issue -d reddoglinux.ddns.net   --webroot /opt/htdocs --force
+
 delete window.$;
 let wpRequire = webpackChunkdiscord_app.push([[Symbol()], {}, r => r]);
 webpackChunkdiscord_app.pop();
